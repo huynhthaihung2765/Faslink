@@ -1,0 +1,281 @@
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\ApplicationInsights.config
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Faslink.dll.config
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Faslink.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Faslink.pdb
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Antlr3.Runtime.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\EntityFramework.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\EntityFramework.SqlServer.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Web.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.ApplicationInsights.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Newtonsoft.Json.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Owin.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.Helpers.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.Mvc.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.Optimization.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.Razor.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Deployment.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Razor.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\WebGrease.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.Helpers.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.Mvc.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.Optimization.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.Razor.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Deployment.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Razor.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Antlr3.Runtime.pdb
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Newtonsoft.Json.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\EntityFramework.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\EntityFramework.SqlServer.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.ApplicationInsights.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Web.xml
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.csprojResolveAssemblyReference.cache
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.csproj.CoreCompileInputs.cache
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.dll
+C:\Users\PC1-DEV\Desktop\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.pdb
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\ApplicationInsights.config
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Faslink.dll.config
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Faslink.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Faslink.pdb
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Antlr3.Runtime.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\EntityFramework.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\EntityFramework.SqlServer.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Web.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.ApplicationInsights.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Newtonsoft.Json.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Owin.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.Helpers.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.Mvc.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.Optimization.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.Razor.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Deployment.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Razor.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\WebGrease.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.Helpers.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.Mvc.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.Optimization.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.Razor.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Deployment.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Razor.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Antlr3.Runtime.pdb
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Newtonsoft.Json.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\EntityFramework.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\EntityFramework.SqlServer.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.ApplicationInsights.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Web.xml
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.csprojResolveAssemblyReference.cache
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.csproj.CoreCompileInputs.cache
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.dll
+C:\Users\PC1-DEV\Desktop\Công việc\Dự án1(Faslink)\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.pdb
+D:\Project\PG_Faslinkdemo\Faslink\bin\ApplicationInsights.config
+D:\Project\PG_Faslinkdemo\Faslink\bin\Faslink.dll.config
+D:\Project\PG_Faslinkdemo\Faslink\bin\Faslink.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Faslink.pdb
+D:\Project\PG_Faslinkdemo\Faslink\bin\Antlr3.Runtime.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\EntityFramework.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\EntityFramework.SqlServer.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.DependencyCollector.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Web.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.WindowsServer.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.ApplicationInsights.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Google.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Web.Infrastructure.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Newtonsoft.Json.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Owin.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.Helpers.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.Mvc.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.Optimization.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.Razor.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Deployment.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Razor.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\WebGrease.dll
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Newtonsoft.Json.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.Helpers.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.Mvc.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.Optimization.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.Razor.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Deployment.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Razor.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Antlr3.Runtime.pdb
+D:\Project\PG_Faslinkdemo\Faslink\bin\EntityFramework.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\EntityFramework.SqlServer.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Google.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.ApplicationInsights.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.DependencyCollector.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.WindowsServer.xml
+D:\Project\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Web.xml
+D:\Project\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.csprojResolveAssemblyReference.cache
+D:\Project\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.dll
+D:\Project\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.pdb
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\ApplicationInsights.config
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Faslink.dll.config
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Faslink.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Faslink.pdb
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Antlr3.Runtime.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\EntityFramework.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\EntityFramework.SqlServer.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Agent.Intercept.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.DependencyCollector.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Web.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.WindowsServer.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.ApplicationInsights.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Google.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Web.Infrastructure.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Newtonsoft.Json.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Owin.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.Helpers.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.Mvc.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.Optimization.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.Razor.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Deployment.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Razor.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\WebGrease.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Newtonsoft.Json.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.Helpers.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.Mvc.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.Optimization.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.Razor.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Deployment.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\System.Web.WebPages.Razor.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Antlr3.Runtime.pdb
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\EntityFramework.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\EntityFramework.SqlServer.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Google.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.ApplicationInsights.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.DependencyCollector.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.WindowsServer.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\bin\Microsoft.AI.Web.xml
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.dll
+F:\Thai Hung\DAVaiSoi\PG_Faslinkdemo\Faslink\obj\Debug\Faslink.pdb

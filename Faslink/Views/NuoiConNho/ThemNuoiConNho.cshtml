@@ -1,0 +1,176 @@
+﻿
+@{
+    ViewBag.Title = "ThemNuoiConNho";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="m-subheader ">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Đơn xin nuôi con nhỏ
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Nhân Sự
+                        </span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Đơn xin nuôi con nhỏ
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+        </div>
+    </div>
+</div>
+<div class="row" style="padding-left: 15px;">
+    <div class="col-sm-6">
+        <div class="m-alert m-alert--outline alert alert-success alert-dismissible " role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+            <strong>
+                Thành công!
+            </strong>
+            Bạn đã thêm thành công.
+        </div>
+        <div class="m-alert m-alert--outline alert alert-warning alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+            <strong>
+                Cảnh Báo!
+            </strong>
+            Vui lòng kiểm tra lại thông tin.
+        </div>
+    </div>
+</div>
+<div class="m-content">
+    <div class="row">
+        <div class="m-portlet m-portlet--mobile col-sm-6">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                            Thêm Thông tin nuôi con nhỏ
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <!--begin form-->
+            <form class="m-form m-form--fit m-form--label-align-right ">
+                <div class="m-portlet__body">
+                    <div class="form-group m-form__group">
+                        <label>
+                            Họ tên nhân viên
+                        </label>
+                        <input class="form-control m-input col-12" placeholder="Nhập Họ tên" type="text">
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label>
+                            Họ tên con
+                        </label>
+                        <input class="form-control m-input col-12" placeholder="Nhập Họ tên con" type="text">
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <div class="col-lg-6">
+                            <label>
+                                Ngày sinh con
+                            </label>
+                            <input type="text" class="form-control" id="m_datepicker_1" style="width:135px" placeholder="Chọn ngày" />
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="">
+                                Tháng tuổi con
+                            </label>
+                            <div style="width:105px">
+                                <select class="form-control">
+                                    <optgroup label="Chọn tháng tuổi">
+                                        <option value="1">
+                                            1 tháng
+                                        </option>
+                                        <option value="2">
+                                            2 tháng
+                                        </option>
+                                        <option value="3">
+                                            3 tháng
+                                        </option>
+                                        <option value="4">
+                                            4 tháng
+                                        </option>
+                                        <option value="1">
+                                            5 tháng
+                                        </option>
+                                        <option value="2">
+                                            6 tháng
+                                        </option>
+                                        <option value="3">
+                                            7 tháng
+                                        </option>
+                                        <option value="4">
+                                            8 tháng
+                                        </option>
+                                        <option value="1">
+                                            9 tháng
+                                        </option>
+                                        <option value="2">
+                                            10 tháng
+                                        </option>
+                                        <option value="3">
+                                            11 tháng
+                                        </option>
+                                        <option value="4">
+                                            12 tháng
+                                        </option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <div class="col-lg-6">
+                            <label>
+                                Từ ngày 
+                            </label>
+                            <input type="text" class="form-control" id="m_datepicker_1" style="width:135px" placeholder="Chọn ngày" />
+                        </div>
+                        <div class="col-lg-6">
+                            <label>
+                                Đến ngày
+                            </label>
+                            <input type="text" class="form-control" id="m_datepicker_1" style="width:135px" placeholder="Chọn ngày" />
+                        </div>
+                    </div>
+                    <div class="m-portlet__foot m-portlet__foot--fit">
+                        <div class="m-form__actions">
+                            @*<br />*@
+                            <button type="reset" class="btn btn-primary">
+                                Lưu
+                            </button>
+                            <button type="reset" class="btn btn-secondary">
+                                Hủy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!--end form-->
+        </div>
+    </div>
+</div>
+

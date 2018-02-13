@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "SuaCongTac";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="m-subheader ">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Tạo đơn công tác
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="/Home/index" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Nhân sự
+                        </span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Tạo đơn công tác
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="m-content">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="m-alert m-alert--outline alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                <strong>
+                    Chúc mừng!
+                </strong>
+                Bạn đã thêm thành công đơn đi công tác
+            </div>
+            <div class="m-alert m-alert--outline alert alert-warning alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                <strong>
+                    Cảnh báo!
+                </strong>
+                Vui lòng kiểm tra lại thông tin.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="m-content">
+    <div class="row ">
+        <div class="col-sm-6">
+            <div class="m-portlet" |>
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <span class="m-portlet__head-icon m--hide">
+                                <i class="la la-gear"></i>
+                            </span>
+                            <h3 class="m-portlet__head-text">
+                                Tạo đơn công tác
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <form class="m-form">
+                    <div class="m-portlet__body">
+                        <div class="m-form__section m-form__section--first">
+                            <div class="form-group m-form__group">
+                                <label for="example_input_full_name">
+                                    Họ tên
+                                </label>
+                                <input class="form-control m-input" list="hoten" name="hoten" placeholder="Nhập họ tên">
+                                <datalist id="hoten">
+                                    <option value="hưng">
+                                    <option value="phương">
+                                </datalist>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Mã nhân viên
+                                </label>
+                                <input class="form-control" onkeypress="return isNumberKey(event)" style="width:135px" readonly />
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Bộ phận
+                                </label>
+                                <input class="form-control" style="width:135px" readonly />
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Địa điểm công tác
+                                </label>
+                                <textarea class="form-control" placeholder="nhập địa điểm công tác"></textarea>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <div class="row" style="color:#0c0a0a">
+                                    <div class="col-sm-4">
+                                        <label>Từ ngày</label>
+                                        <input type="text" placeholder="Chọn ngày" class="form-control" id="m_datepicker_1" style="width:135px" readonly />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label>Đến ngày</label>
+                                        <input type="text" placeholder="Chọn ngày" class="form-control" id="m_datepicker_1" style="width:135px" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Số ngày công tác
+                                </label>
+                                <input class="form-control" readonly style="width:110px" />
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Ghi chú
+                                </label>
+                                <textarea class="form-control" placeholder="Nhập ghi chú"></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="m-portlet__foot m-portlet__foot--fit">
+                        <div class="m-form__actions m-form__actions">
+                            <button type="submit" class="btn btn-primary">
+                                Lưu
+                            </button>
+                            <button type="reset" class="btn btn-secondary">
+                                Hủy
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,863 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FaslinkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BHXHBHYT">
+    <Key>
+      <PropertyRef Name="SoBHXH" />
+    </Key>
+    <Property Name="NoiKhamBenh" Type="nvarchar" MaxLength="1000" />
+    <Property Name="SoBHXH" Type="int" Nullable="false" />
+    <Property Name="NgayThamGia" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CongNhanMoi">
+    <Key>
+      <PropertyRef Name="IdCongNhanMoi" />
+    </Key>
+    <Property Name="IdCongNhanMoi" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CongTac">
+    <Key>
+      <PropertyRef Name="IdCongTac" />
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdCongTac" Type="int" Nullable="false" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+    <Property Name="ChiNhanh" Type="nvarchar" MaxLength="100" />
+    <Property Name="DiaDiem_CongTac" Type="nvarchar" MaxLength="100" />
+    <Property Name="TuNgay" Type="date" />
+    <Property Name="DenNgay" Type="date" />
+    <Property Name="SoNgay_CongTac" Type="float" />
+    <Property Name="NguoiDuyet" Type="nvarchar" MaxLength="100" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+    <Property Name="NgaySua" Type="date" />
+  </EntityType>
+  <EntityType Name="ChiTietNghiPhep">
+    <Key>
+      <PropertyRef Name="IdChiTietNghiPhep" />
+      <PropertyRef Name="IdNghiPhep" />
+      <PropertyRef Name="IdNhanVien" />
+      <PropertyRef Name="IdLoaiPhep" />
+    </Key>
+    <Property Name="IdChiTietNghiPhep" Type="int" Nullable="false" />
+    <Property Name="TuNgay" Type="date" />
+    <Property Name="TuGio" Type="time" Precision="7" />
+    <Property Name="DenNgay" Type="date" />
+    <Property Name="DenGio" Type="time" Precision="7" />
+    <Property Name="IdNghiPhep" Type="int" Nullable="false" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+    <Property Name="IdLoaiPhep" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChucVu">
+    <Key>
+      <PropertyRef Name="IdChucVu" />
+    </Key>
+    <Property Name="IdChucVu" Type="int" Nullable="false" />
+    <Property Name="TenChucVu" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ChuyenCan">
+    <Key>
+      <PropertyRef Name="IdChuyenCan" />
+    </Key>
+    <Property Name="IdChuyenCan" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ChuyenCongTac">
+    <Key>
+      <PropertyRef Name="IdChuyenCongTac" />
+    </Key>
+    <Property Name="IdChuyenCongTac" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DiaChiLienLac">
+    <Key>
+      <PropertyRef Name="IdLienLac" />
+      <PropertyRef Name="IdTinh_TP" />
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdLienLac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoNhaDuong" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Thoigian" Type="datetime" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="IdTinh_TP" Type="int" Nullable="false" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+    <Property Name="IdQuan_Huyen" Type="int" />
+  </EntityType>
+  <EntityType Name="DiaChiThuongTru">
+    <Key>
+      <PropertyRef Name="IdThuongTru" />
+      <PropertyRef Name="IdTinh_TP" />
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdThuongTru" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTinh_TP" Type="int" Nullable="false" />
+    <Property Name="SoNhaDuong" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+    <Property Name="IdQuan_Huyen" Type="int" />
+  </EntityType>
+  <EntityType Name="DiaDiemLamViec">
+    <Key>
+      <PropertyRef Name="IdDiaDiemLamViec" />
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdDiaDiemLamViec" Type="int" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DonNghiPhep">
+    <Key>
+      <PropertyRef Name="ID_DonNghiPhep" />
+    </Key>
+    <Property Name="ID_DonNghiPhep" Type="int" Nullable="false" />
+    <Property Name="Hoten" Type="nvarchar" MaxLength="100" />
+    <Property Name="ChucVu" Type="nvarchar" MaxLength="100" />
+    <Property Name="BoPhan" Type="nvarchar" MaxLength="100" />
+    <Property Name="SoNgayNghi" Type="float" />
+    <Property Name="GioBatDau" Type="date" />
+    <Property Name="GioKetThuc" Type="date" />
+    <Property Name="LyDo" Type="nvarchar" MaxLength="200" />
+    <Property Name="NguoiBanGiao" Type="nvarchar" MaxLength="100" />
+    <Property Name="CongViecBanGiao" Type="nvarchar" MaxLength="200" />
+    <Property Name="TuNgay" Type="date" />
+    <Property Name="DenNgay" Type="date" />
+  </EntityType>
+  <EntityType Name="DonXinNghiThaiSan">
+    <Key>
+      <PropertyRef Name="IdDonXinNghiThaiSan" />
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdDonXinNghiThaiSan" Type="int" Nullable="false" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+    <Property Name="NgayBatDau" Type="date" />
+    <Property Name="ThoiGianKetThuc" Type="date" />
+    <Property Name="TuGio" Type="time" Precision="7" />
+    <Property Name="ToiGio" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="HopDongLaoDong">
+    <Key>
+      <PropertyRef Name="IdHopDong" />
+      <PropertyRef Name="IdNhanVien" />
+      <PropertyRef Name="IdLoaiHopDong" />
+    </Key>
+    <Property Name="IdHopDong" Type="int" Nullable="false" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+    <Property Name="IdLoaiHopDong" Type="int" Nullable="false" />
+    <Property Name="SoHopDong" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgayKy" Type="date" />
+    <Property Name="BoPhan" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgheNghiep" Type="nvarchar" MaxLength="100" />
+    <Property Name="ChucDanh" Type="nvarchar" MaxLength="100" />
+    <Property Name="DiaDiemLamViec" Type="nvarchar" MaxLength="200" />
+    <Property Name="Luong" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="NguoiTao" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgayThanhLy" Type="date" />
+    <Property Name="TuNgay" Type="date" />
+    <Property Name="DenNgay" Type="date" />
+  </EntityType>
+  <EntityType Name="KhamThaiSan">
+    <Key>
+      <PropertyRef Name="IdKhamThaiSan" />
+      <PropertyRef Name="IdThaiSan" />
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdKhamThaiSan" Type="int" Nullable="false" />
+    <Property Name="Thang" Type="int" />
+    <Property Name="Tuan" Type="int" />
+    <Property Name="Ngay" Type="int" />
+    <Property Name="NoiDung" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdThaiSan" Type="int" Nullable="false" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LichLamViec">
+    <Key>
+      <PropertyRef Name="IdLich" />
+    </Key>
+    <Property Name="IdLich" Type="int" Nullable="false" />
+    <Property Name="TenLich" Type="nvarchar" MaxLength="100" />
+    <Property Name="Thu2" Type="time" Precision="7" />
+    <Property Name="Thu3" Type="time" Precision="7" />
+    <Property Name="Thu4" Type="time" Precision="7" />
+    <Property Name="Thu5" Type="time" Precision="7" />
+    <Property Name="Thu6" Type="time" Precision="7" />
+    <Property Name="Thu7" Type="time" Precision="7" />
+    <Property Name="ChuNhat" Type="time" Precision="7" />
+    <Property Name="Ka" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LichNhanVien">
+    <Key>
+      <PropertyRef Name="IdNhanVien" />
+      <PropertyRef Name="IdLich" />
+    </Key>
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+    <Property Name="IdLich" Type="int" Nullable="false" />
+    <Property Name="Ngay" Type="date" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="LoaiHopDong">
+    <Key>
+      <PropertyRef Name="IdLoaiHopDong" />
+    </Key>
+    <Property Name="IdLoaiHopDong" Type="int" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LoaiPhep">
+    <Key>
+      <PropertyRef Name="IdLoaiPhep" />
+    </Key>
+    <Property Name="IdLoaiPhep" Type="int" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LogBoPhan">
+    <Key>
+      <PropertyRef Name="IdLogBoPhan" />
+    </Key>
+    <Property Name="IdLogBoPhan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+    <Property Name="IdBoPhan" Type="int" />
+  </EntityType>
+  <EntityType Name="LogHDLD">
+    <Key>
+      <PropertyRef Name="IdLogHDLD" />
+      <PropertyRef Name="IdHopDong" />
+      <PropertyRef Name="IdLoaiHopDong" />
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdLogHDLD" Type="int" Nullable="false" />
+    <Property Name="IdHopDong" Type="int" Nullable="false" />
+    <Property Name="NgaySua" Type="date" />
+    <Property Name="NguoiSua" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdLoaiHopDong" Type="int" Nullable="false" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NuoiConNho">
+    <Key>
+      <PropertyRef Name="IdNuoiConNho" />
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdNuoiConNho" Type="int" Nullable="false" />
+    <Property Name="HoTenCon" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgaySinhCon" Type="date" />
+    <Property Name="TuoiCon" Type="float" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NghiPhep">
+    <Key>
+      <PropertyRef Name="IdNghiPhep" />
+      <PropertyRef Name="IdNhanVien" />
+      <PropertyRef Name="IdLoaiPhep" />
+    </Key>
+    <Property Name="IdNghiPhep" Type="int" Nullable="false" />
+    <Property Name="LyDo" Type="nvarchar" MaxLength="1000" />
+    <Property Name="NguoiNhanBanGiaoId" Type="int" />
+    <Property Name="CongViecBanGiao" Type="char" MaxLength="1" />
+    <Property Name="NgayTao" Type="char" MaxLength="1" />
+    <Property Name="NguoiDuyet" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+    <Property Name="IdLoaiPhep" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdGioiTinh" Type="int" />
+    <Property Name="NgayVao" Type="date" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="NoiSinh" Type="nvarchar" MaxLength="100" />
+    <Property Name="HonNhan" Type="nvarchar" MaxLength="100" />
+    <Property Name="DienThoai" Type="nvarchar" MaxLength="15" />
+    <Property Name="DienThoaiNguoiThan" Type="nvarchar" MaxLength="15" />
+    <Property Name="EmailCTy" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmailCaNhan" Type="nvarchar" MaxLength="100" />
+    <Property Name="QuocTich" Type="nvarchar" MaxLength="100" />
+    <Property Name="TonGiao" Type="nvarchar" MaxLength="100" />
+    <Property Name="DanToc" Type="nvarchar" MaxLength="100" />
+    <Property Name="Hinh" Type="nvarchar" MaxLength="200" />
+    <Property Name="SoNguoiPhuThuoc" Type="int" />
+    <Property Name="TrangThai" Type="bit" />
+    <Property Name="Mvt" Type="int" />
+    <Property Name="Ka" Type="nvarchar" MaxLength="100" />
+    <Property Name="ToLamViec" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgayNghi" Type="date" />
+    <Property Name="NguoiGioiThieu" Type="nvarchar" MaxLength="100" />
+    <Property Name="SoCMND" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgayCap" Type="date" />
+    <Property Name="NoiCap" Type="nvarchar" MaxLength="100" />
+    <Property Name="NguyenQuan" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="NhanVienChucVu">
+    <Key>
+      <PropertyRef Name="IdNhanVien" />
+      <PropertyRef Name="IdChucVu" />
+    </Key>
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+    <Property Name="IdChucVu" Type="int" Nullable="false" />
+    <Property Name="ThoiGian" Type="date" />
+  </EntityType>
+  <EntityType Name="Quan">
+    <Key>
+      <PropertyRef Name="IdQuan" />
+    </Key>
+    <Property Name="IdQuan" Type="int" Nullable="false" />
+    <Property Name="TenQuan" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdTinh" Type="int" />
+    <Property Name="code" Type="nvarchar" MaxLength="100" />
+    <Property Name="published" Type="int" />
+    <Property Name="ordering" Type="int" />
+  </EntityType>
+  <EntityType Name="Tinh">
+    <Key>
+      <PropertyRef Name="IdTinh" />
+    </Key>
+    <Property Name="IdTinh" Type="int" Nullable="false" />
+    <Property Name="TenTinh" Type="nvarchar" MaxLength="100" />
+    <Property Name="code" Type="nvarchar" MaxLength="100" />
+    <Property Name="published" Type="int" />
+    <Property Name="ordering" Type="int" />
+  </EntityType>
+  <EntityType Name="TinhTrangHopDong">
+    <Key>
+      <PropertyRef Name="IdTinhTrangHD" />
+      <PropertyRef Name="IdHopDong" />
+      <PropertyRef Name="IdLoaiHopDong" />
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdTinhTrangHD" Type="int" Nullable="false" />
+    <Property Name="TenTinhTrang" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdHopDong" Type="int" Nullable="false" />
+    <Property Name="IdLoaiHopDong" Type="int" Nullable="false" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ThaiSan">
+    <Key>
+      <PropertyRef Name="IdThaiSan" />
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdThaiSan" Type="int" Nullable="false" />
+    <Property Name="NgayMangThai" Type="date" />
+    <Property Name="DuKienNghi" Type="date" />
+    <Property Name="NgayNghi" Type="date" />
+    <Property Name="NgaySinhEmBe" Type="date" />
+    <Property Name="DuKienLamLai" Type="date" />
+    <Property Name="NgayLamLai" Type="date" />
+    <Property Name="NgayKetThuc" Type="date" />
+    <Property Name="TinhTrangThaiSan" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgayTao" Type="date" />
+    <Property Name="NguoiTao" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgaySua" Type="date" />
+    <Property Name="NguoiSua" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ThuongPhat">
+    <Key>
+      <PropertyRef Name="IdThuongPhat" />
+    </Key>
+    <Property Name="IdThuongPhat" Type="int" Nullable="false" />
+    <Property Name="ThuongPhat" Type="bit" />
+    <Property Name="LyDo" Type="nvarchar" MaxLength="200" />
+    <Property Name="TienThuong" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="TrinhDo">
+    <Key>
+      <PropertyRef Name="IdTrinhDo" />
+      <PropertyRef Name="IdNhanVien" />
+    </Key>
+    <Property Name="IdTrinhDo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HocVan" Type="nvarchar" MaxLength="500" />
+    <Property Name="TruongHoc" Type="nvarchar" MaxLength="500" />
+    <Property Name="ChuyenMon" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgoaiNgu" Type="nvarchar" MaxLength="500" />
+    <Property Name="ViTinh" Type="nvarchar" MaxLength="500" />
+    <Property Name="ThoiGian" Type="date" />
+    <Property Name="IdNhanVien" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CongTac__IdNhanV__4222D4EF">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="CongTac" Type="Self.CongTac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="CongTac">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietNghiPhep__6D0D32F4">
+    <End Role="NghiPhep" Type="Self.NghiPhep" Multiplicity="1" />
+    <End Role="ChiTietNghiPhep" Type="Self.ChiTietNghiPhep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NghiPhep">
+        <PropertyRef Name="IdNghiPhep" />
+        <PropertyRef Name="IdNhanVien" />
+        <PropertyRef Name="IdLoaiPhep" />
+      </Principal>
+      <Dependent Role="ChiTietNghiPhep">
+        <PropertyRef Name="IdNghiPhep" />
+        <PropertyRef Name="IdNhanVien" />
+        <PropertyRef Name="IdLoaiPhep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DiaChiThu__IdNha__30C33EC3">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="DiaChiThuongTru" Type="Self.DiaChiThuongTru" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="DiaChiThuongTru">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DiaDiemLa__IdNha__4CA06362">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="DiaDiemLamViec" Type="Self.DiaDiemLamViec" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="DiaDiemLamViec">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HopDongLa__IdLoa__571DF1D5">
+    <End Role="LoaiHopDong" Type="Self.LoaiHopDong" Multiplicity="1" />
+    <End Role="HopDongLaoDong" Type="Self.HopDongLaoDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiHopDong">
+        <PropertyRef Name="IdLoaiHopDong" />
+      </Principal>
+      <Dependent Role="HopDongLaoDong">
+        <PropertyRef Name="IdLoaiHopDong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HopDongLa__IdNha__4BAC3F29">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="HopDongLaoDong" Type="Self.HopDongLaoDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="HopDongLaoDong">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KhamThaiSan__4F7CD00D">
+    <End Role="ThaiSan" Type="Self.ThaiSan" Multiplicity="1" />
+    <End Role="KhamThaiSan" Type="Self.KhamThaiSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThaiSan">
+        <PropertyRef Name="IdThaiSan" />
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="KhamThaiSan">
+        <PropertyRef Name="IdThaiSan" />
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LichNhanV__IdLic__5EBF139D">
+    <End Role="LichLamViec" Type="Self.LichLamViec" Multiplicity="1" />
+    <End Role="LichNhanVien" Type="Self.LichNhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichLamViec">
+        <PropertyRef Name="IdLich" />
+      </Principal>
+      <Dependent Role="LichNhanVien">
+        <PropertyRef Name="IdLich" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LichNhanV__IdNha__4AB81AF0">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="LichNhanVien" Type="Self.LichNhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="LichNhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LogHDLD__4D94879B">
+    <End Role="HopDongLaoDong" Type="Self.HopDongLaoDong" Multiplicity="1" />
+    <End Role="LogHDLD" Type="Self.LogHDLD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDongLaoDong">
+        <PropertyRef Name="IdHopDong" />
+        <PropertyRef Name="IdNhanVien" />
+        <PropertyRef Name="IdLoaiHopDong" />
+      </Principal>
+      <Dependent Role="LogHDLD">
+        <PropertyRef Name="IdHopDong" />
+        <PropertyRef Name="IdNhanVien" />
+        <PropertyRef Name="IdLoaiHopDong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NuoiConNh__IdNha__778AC167">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="NuoiConNho" Type="Self.NuoiConNho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="NuoiConNho">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NhanVienC__IdChu__5629CD9C">
+    <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1" />
+    <End Role="NhanVienChucVu" Type="Self.NhanVienChucVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucVu">
+        <PropertyRef Name="IdChucVu" />
+      </Principal>
+      <Dependent Role="NhanVienChucVu">
+        <PropertyRef Name="IdChucVu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NhanVienC__IdNha__48CFD27E">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="NhanVienChucVu" Type="Self.NhanVienChucVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="NhanVienChucVu">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TinhTrangHopDong__4E88ABD4">
+    <End Role="HopDongLaoDong" Type="Self.HopDongLaoDong" Multiplicity="1" />
+    <End Role="TinhTrangHopDong" Type="Self.TinhTrangHopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDongLaoDong">
+        <PropertyRef Name="IdHopDong" />
+        <PropertyRef Name="IdNhanVien" />
+        <PropertyRef Name="IdLoaiHopDong" />
+      </Principal>
+      <Dependent Role="TinhTrangHopDong">
+        <PropertyRef Name="IdHopDong" />
+        <PropertyRef Name="IdNhanVien" />
+        <PropertyRef Name="IdLoaiHopDong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ThaiSan__IdNhanV__46E78A0C">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="ThaiSan" Type="Self.ThaiSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="ThaiSan">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TrinhDo__IdNhanV__440B1D61">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="TrinhDo" Type="Self.TrinhDo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="TrinhDo">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DiaChiLienLac_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="DiaChiLienLac" Type="Self.DiaChiLienLac" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="DiaChiLienLac">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonXinNghiThaiSan_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="DonXinNghiThaiSan" Type="Self.DonXinNghiThaiSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="DonXinNghiThaiSan">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LogBoPhan_NhanVien1">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="LogBoPhan" Type="Self.LogBoPhan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="LogBoPhan">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NghiPhep_LoaiPhep">
+    <End Role="LoaiPhep" Type="Self.LoaiPhep" Multiplicity="1" />
+    <End Role="NghiPhep" Type="Self.NghiPhep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiPhep">
+        <PropertyRef Name="IdLoaiPhep" />
+      </Principal>
+      <Dependent Role="NghiPhep">
+        <PropertyRef Name="IdLoaiPhep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NghiPhep_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="NghiPhep" Type="Self.NghiPhep" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="IdNhanVien" />
+      </Principal>
+      <Dependent Role="NghiPhep">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ChiTietNhanVienTheoId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DanhSachNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SuaNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+    <Parameter Name="HoTen" Type="nvarchar" Mode="In" />
+    <Parameter Name="GioiTinh" Type="int" Mode="In" />
+    <Parameter Name="NgayVao" Type="date" Mode="In" />
+    <Parameter Name="NgaySinh" Type="date" Mode="In" />
+    <Parameter Name="NoiSinh" Type="nvarchar" Mode="In" />
+    <Parameter Name="HonNhan" Type="nvarchar" Mode="In" />
+    <Parameter Name="DienThoai" Type="nvarchar" Mode="In" />
+    <Parameter Name="DienThoaiNguoiThan" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailCTy" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailCaNhan" Type="nvarchar" Mode="In" />
+    <Parameter Name="QuocTich" Type="nvarchar" Mode="In" />
+    <Parameter Name="TonGiao" Type="nvarchar" Mode="In" />
+    <Parameter Name="DanToc" Type="nvarchar" Mode="In" />
+    <Parameter Name="Hinh" Type="nvarchar" Mode="In" />
+    <Parameter Name="SoNguoiPhuThuoc" Type="int" Mode="In" />
+    <Parameter Name="TrangThai" Type="bit" Mode="In" />
+    <Parameter Name="Mvt" Type="int" Mode="In" />
+    <Parameter Name="Ka" Type="nvarchar" Mode="In" />
+    <Parameter Name="To" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayNghi" Type="date" Mode="In" />
+    <Parameter Name="NguoiGioiThieu" Type="nvarchar" Mode="In" />
+    <Parameter Name="SoCMND" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayCap" Type="date" Mode="In" />
+    <Parameter Name="NoiCap" Type="nvarchar" Mode="In" />
+    <Parameter Name="NguyenQuan" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ThemBoPhan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenBoPhan" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ThemDiaChiLienLac" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SoNhaDuong" Type="nvarchar" Mode="In" />
+    <Parameter Name="ThoiGian" Type="date" Mode="In" />
+    <Parameter Name="TrangThai" Type="bit" Mode="In" />
+    <Parameter Name="IdTinh_TP" Type="int" Mode="In" />
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+    <Parameter Name="IdQuan_Huyen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ThemDiaChiThuongTru" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTinh_TP" Type="int" Mode="In" />
+    <Parameter Name="SoNhaDuong" Type="nvarchar" Mode="In" />
+    <Parameter Name="TrangThai" Type="bit" Mode="In" />
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+    <Parameter Name="IdQuan_Huyen" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ThemLogBoPhan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NgayThayDoi" Type="date" Mode="In" />
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+    <Parameter Name="IdBoPhan" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ThemNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+    <Parameter Name="HoTen" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdGioiTinh" Type="int" Mode="In" />
+    <Parameter Name="NgayVao" Type="date" Mode="In" />
+    <Parameter Name="NgaySinh" Type="date" Mode="In" />
+    <Parameter Name="NoiSinh" Type="nvarchar" Mode="In" />
+    <Parameter Name="HonNhan" Type="nvarchar" Mode="In" />
+    <Parameter Name="DienThoai" Type="nvarchar" Mode="In" />
+    <Parameter Name="DienThoaiNguoiThan" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailCTy" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailCaNhan" Type="nvarchar" Mode="In" />
+    <Parameter Name="QuocTich" Type="nvarchar" Mode="In" />
+    <Parameter Name="TonGiao" Type="nvarchar" Mode="In" />
+    <Parameter Name="DanToc" Type="nvarchar" Mode="In" />
+    <Parameter Name="Hinh" Type="nvarchar" Mode="In" />
+    <Parameter Name="SoNguoiPhuThuoc" Type="int" Mode="In" />
+    <Parameter Name="TrangThai" Type="bit" Mode="In" />
+    <Parameter Name="Mvt" Type="int" Mode="In" />
+    <Parameter Name="Ka" Type="nvarchar" Mode="In" />
+    <Parameter Name="ToLamViec" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayNghi" Type="date" Mode="In" />
+    <Parameter Name="NguoiGioiThieu" Type="nvarchar" Mode="In" />
+    <Parameter Name="SoCMND" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgayCap" Type="date" Mode="In" />
+    <Parameter Name="NoiCap" Type="nvarchar" Mode="In" />
+    <Parameter Name="NguyenQuan" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ThemTrinhDo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HocVan" Type="nvarchar" Mode="In" />
+    <Parameter Name="TruongHoc" Type="nvarchar" Mode="In" />
+    <Parameter Name="ChuyenMon" Type="nvarchar" Mode="In" />
+    <Parameter Name="NgoaiNgu" Type="nvarchar" Mode="In" />
+    <Parameter Name="ViTinh" Type="nvarchar" Mode="In" />
+    <Parameter Name="ThoiGian" Type="date" Mode="In" />
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+  </Function>
+  <Function Name="XoaDiaChiLienLac" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+  </Function>
+  <Function Name="XoaDiaChiThuongTru" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+  </Function>
+  <Function Name="XoaLogBoPhan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+  </Function>
+  <Function Name="XoaNhanVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+  </Function>
+  <Function Name="XoaTrinhDo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdNhanVien" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="FaslinkModelStoreContainer">
+    <EntitySet Name="BHXHBHYT" EntityType="Self.BHXHBHYT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CongNhanMoi" EntityType="Self.CongNhanMoi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CongTac" EntityType="Self.CongTac" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChiTietNghiPhep" EntityType="Self.ChiTietNghiPhep" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChuyenCan" EntityType="Self.ChuyenCan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChuyenCongTac" EntityType="Self.ChuyenCongTac" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiaChiLienLac" EntityType="Self.DiaChiLienLac" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiaChiThuongTru" EntityType="Self.DiaChiThuongTru" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiaDiemLamViec" EntityType="Self.DiaDiemLamViec" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonNghiPhep" EntityType="Self.DonNghiPhep" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonXinNghiThaiSan" EntityType="Self.DonXinNghiThaiSan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HopDongLaoDong" EntityType="Self.HopDongLaoDong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhamThaiSan" EntityType="Self.KhamThaiSan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichLamViec" EntityType="Self.LichLamViec" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichNhanVien" EntityType="Self.LichNhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiHopDong" EntityType="Self.LoaiHopDong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiPhep" EntityType="Self.LoaiPhep" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogBoPhan" EntityType="Self.LogBoPhan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogHDLD" EntityType="Self.LogHDLD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NuoiConNho" EntityType="Self.NuoiConNho" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NghiPhep" EntityType="Self.NghiPhep" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVienChucVu" EntityType="Self.NhanVienChucVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quan" EntityType="Self.Quan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tinh" EntityType="Self.Tinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinhTrangHopDong" EntityType="Self.TinhTrangHopDong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThaiSan" EntityType="Self.ThaiSan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThuongPhat" EntityType="Self.ThuongPhat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrinhDo" EntityType="Self.TrinhDo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CongTac__IdNhanV__4222D4EF" Association="Self.FK__CongTac__IdNhanV__4222D4EF">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="CongTac" EntitySet="CongTac" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietNghiPhep__6D0D32F4" Association="Self.FK__ChiTietNghiPhep__6D0D32F4">
+      <End Role="NghiPhep" EntitySet="NghiPhep" />
+      <End Role="ChiTietNghiPhep" EntitySet="ChiTietNghiPhep" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DiaChiThu__IdNha__30C33EC3" Association="Self.FK__DiaChiThu__IdNha__30C33EC3">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="DiaChiThuongTru" EntitySet="DiaChiThuongTru" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DiaDiemLa__IdNha__4CA06362" Association="Self.FK__DiaDiemLa__IdNha__4CA06362">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="DiaDiemLamViec" EntitySet="DiaDiemLamViec" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HopDongLa__IdLoa__571DF1D5" Association="Self.FK__HopDongLa__IdLoa__571DF1D5">
+      <End Role="LoaiHopDong" EntitySet="LoaiHopDong" />
+      <End Role="HopDongLaoDong" EntitySet="HopDongLaoDong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HopDongLa__IdNha__4BAC3F29" Association="Self.FK__HopDongLa__IdNha__4BAC3F29">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="HopDongLaoDong" EntitySet="HopDongLaoDong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KhamThaiSan__4F7CD00D" Association="Self.FK__KhamThaiSan__4F7CD00D">
+      <End Role="ThaiSan" EntitySet="ThaiSan" />
+      <End Role="KhamThaiSan" EntitySet="KhamThaiSan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LichNhanV__IdLic__5EBF139D" Association="Self.FK__LichNhanV__IdLic__5EBF139D">
+      <End Role="LichLamViec" EntitySet="LichLamViec" />
+      <End Role="LichNhanVien" EntitySet="LichNhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LichNhanV__IdNha__4AB81AF0" Association="Self.FK__LichNhanV__IdNha__4AB81AF0">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="LichNhanVien" EntitySet="LichNhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LogHDLD__4D94879B" Association="Self.FK__LogHDLD__4D94879B">
+      <End Role="HopDongLaoDong" EntitySet="HopDongLaoDong" />
+      <End Role="LogHDLD" EntitySet="LogHDLD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NuoiConNh__IdNha__778AC167" Association="Self.FK__NuoiConNh__IdNha__778AC167">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="NuoiConNho" EntitySet="NuoiConNho" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NhanVienC__IdChu__5629CD9C" Association="Self.FK__NhanVienC__IdChu__5629CD9C">
+      <End Role="ChucVu" EntitySet="ChucVu" />
+      <End Role="NhanVienChucVu" EntitySet="NhanVienChucVu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NhanVienC__IdNha__48CFD27E" Association="Self.FK__NhanVienC__IdNha__48CFD27E">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="NhanVienChucVu" EntitySet="NhanVienChucVu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TinhTrangHopDong__4E88ABD4" Association="Self.FK__TinhTrangHopDong__4E88ABD4">
+      <End Role="HopDongLaoDong" EntitySet="HopDongLaoDong" />
+      <End Role="TinhTrangHopDong" EntitySet="TinhTrangHopDong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ThaiSan__IdNhanV__46E78A0C" Association="Self.FK__ThaiSan__IdNhanV__46E78A0C">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="ThaiSan" EntitySet="ThaiSan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TrinhDo__IdNhanV__440B1D61" Association="Self.FK__TrinhDo__IdNhanV__440B1D61">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="TrinhDo" EntitySet="TrinhDo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DiaChiLienLac_NhanVien" Association="Self.FK_DiaChiLienLac_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="DiaChiLienLac" EntitySet="DiaChiLienLac" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonXinNghiThaiSan_NhanVien" Association="Self.FK_DonXinNghiThaiSan_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="DonXinNghiThaiSan" EntitySet="DonXinNghiThaiSan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LogBoPhan_NhanVien1" Association="Self.FK_LogBoPhan_NhanVien1">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="LogBoPhan" EntitySet="LogBoPhan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NghiPhep_LoaiPhep" Association="Self.FK_NghiPhep_LoaiPhep">
+      <End Role="LoaiPhep" EntitySet="LoaiPhep" />
+      <End Role="NghiPhep" EntitySet="NghiPhep" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NghiPhep_NhanVien" Association="Self.FK_NghiPhep_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="NghiPhep" EntitySet="NghiPhep" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

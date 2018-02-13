@@ -1,0 +1,274 @@
+﻿
+@{
+    ViewBag.Title = "TaoDonNghiPhep";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="m-subheader ">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Tạo đơn nghỉ phép
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="/Home/index" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Nhân sự
+                        </span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Tạo đơn nghỉ phép
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="m-content">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="m-alert m-alert--outline alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                <strong>
+                    Chúc mừng!
+                </strong>
+                Bạn đã thêm thành công hợp đồng
+            </div>
+            <div class="m-alert m-alert--outline alert alert-warning alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                <strong>
+                    Cảnh báo!
+                </strong>
+                Vui lòng kiểm tra lại thông tin.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="m-content">
+    <div class="row ">
+        <div class="col-sm-6">
+            <div class="m-portlet" |>
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <span class="m-portlet__head-icon m--hide">
+                                <i class="la la-gear"></i>
+                            </span>
+                            <h3 class="m-portlet__head-text">
+                                Tạo đơn nghỉ phép
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <form class="m-form">
+                    <div class="m-portlet__body">
+                        <div class="m-form__section m-form__section--first">
+                            <div class="form-group m-form__group">
+                                <label for="example_input_full_name">
+                                    Họ tên
+                                </label>
+                                <input class="form-control m-input" list="hoten" name="hoten" placeholder="Nhập họ tên">
+                                <datalist id="hoten">
+                                    <option value="hưng">
+                                    <option value="phương">
+                                </datalist>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Bộ phận
+                                </label>
+                                <input class="form-control m-input" readonly style="width:135px" type="text" />
+                            </div>
+                            <div class="form-group m-form__group">
+
+                                <label>
+                                    Chức vụ
+                                </label>
+                                <input type="text" class="form-control" style="width:135px" readonly />
+
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Lý do
+                                </label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <span class="m-portlet__head-icon m--hide">
+                                    <i class="la la-gear"></i>
+                                </span>
+                                <h3 class="m-portlet__head-text">
+                                    Chi tiết nghỉ phép
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div class="m-form__section m-form__section--first">
+                            <div class="form-group m-form__group">
+                                <div class="row" style="color:#0c0a0a">
+                                    <div class="col-sm-4">
+                                        <label>Từ ngày</label>
+                                        <input type="text" placeholder="Chọn ngày" class="form-control" id="m_datepicker_1" style="width:135px" readonly />
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label>Đến ngày</label>
+                                        <input type="text" placeholder="Chọn ngày" class="form-control" id="m_datepicker_1" style="width:135px" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <div class="row" style="color:#0c0a0a">
+                                    <div class="col-sm-4">
+                                        <label>Từ giờ</label>
+                                        <input class="form-control" id="m_timepicker_1" style="width:135px" readonly="" placeholder="Chọn giờ" type="text">                                    </div>
+                                    <div class="col-sm-2">
+                                        <label>Đến giờ</label>
+                                        <input class="form-control" id="m_timepicker_1" style="width:135px" readonly="" placeholder="Chọn giờ" type="text">                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <button class="btn btn-primary">Nhập</button>
+                            </div>
+                            <div class="m_datatable m-datatable m-datatable--default m-datatable--loaded" id="local_data" style="">
+                                <table class="m-datatable__table" style="display: block; min-height: 300px; overflow-x: auto;">
+                                    <thead class="m-datatable__head">
+                                        <tr class="m-datatable__row">
+                                            <th data-field="RecordID" class="m-datatable__cell--center m-datatable__cell m-datatable__cell--check">
+                                                <span style="width: 50px;">
+                                                    <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                        <input type="checkbox">
+                                                        <span>
+                                                        </span>
+                                                    </label>
+                                                </span>
+                                            </th>
+                                            <th data-field="OrderID" class="m-datatable__cell m-datatable__cell--sort">
+                                                <span style="width: 110px;">
+                                                   Nghỉ từ ngày
+                                                </span>
+                                            </th>
+                                            <th data-field="ShipName" class="m-datatable__cell m-datatable__cell--sort">
+                                                <span style="width: 110px;">
+                                                    Nghỉ đến ngày
+                                                </span>
+                                            </th>
+                                            <th data-field="Currency" class="m-datatable__cell m-datatable__cell--sort">
+                                                <span style="width: 100px;">
+                                                    Nghỉ từ giờ
+                                                </span>
+                                            </th>
+                                            <th data-field="ShipAddress" class="m-datatable__cell m-datatable__cell--sort">
+                                                <span style="width: 110px;">
+                                                    Nghỉ đến giờ
+                                                </span>
+                                            </th>
+                                            
+                                            <th data-field="Actions" class="m-datatable__cell m-datatable__cell--sort">
+                                                <span style="width: 110px;">
+                                                    Chức Năng
+                                                </span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="m-datatable__body" style="">
+                                        <tr data-row="0" class="m-datatable__row">
+                                            <td data-field="RecordID" class="m-datatable__cell--center m-datatable__cell m-datatable__cell--check">
+                                                <span style="width: 50px;">
+                                                    <label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand">
+                                                        <input value="7" type="checkbox">
+                                                        <span>
+                                                        </span>
+                                                    </label>
+                                                </span>
+                                            </td>
+                                            <td data-field="OrderID" class="m-datatable__cell">
+                                                <span style="width: 110px;">
+                                                    dd/mm/yyyy
+                                                </span>
+                                            </td>
+                                            <td data-field="ShipName" class="m-datatable__cell">
+                                                <span style="width: 110px;text-align:center">
+                                                    dd/mm/yyyy
+                                                </span>
+                                            </td>
+                                            <td data-field="Currency" class="m-datatable__cell">
+                                                <span style="width: 140px;">
+                                                    time
+                                                </span>
+                                            </td>
+                                            <td data-field="ShipDate" class="m-datatable__cell">
+                                                <span style="width: 110px;">
+                                                   time
+                                                </span>
+                                            </td>
+                                            
+                                            <td data-field="Actions">
+                                                <button onclick="xacnhanxoa()" class="btn btn-primary" href="#">
+                                                    Xóa
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="m-datatable__pager m-datatable--paging-loaded clearfix">
+                                    <ul class="m-datatable__pager-nav">
+                                        <li>
+                                            <a title="First" class="m-datatable__pager-link m-datatable__pager-link--first m-datatable__pager-link--disabled" data-page="1" disabled="disabled">
+                                                <i class="la la-angle-double-left"></i>
+                                            </a>
+                                        </li>
+                                        <li><a title="Previous" class="m-datatable__pager-link m-datatable__pager-link--prev m-datatable__pager-link--disabled" data-page="1" disabled="disabled"><i class="la la-angle-left"></i></a></li>
+                                        <li style="display: none;"><a title="More pages" class="m-datatable__pager-link m-datatable__pager-link--more-prev" data-page="1"><i class="la la-ellipsis-h"></i></a></li>
+                                        <li style="display: none;"><input class="m-pager-input form-control" title="Page number" type="text"></li>
+                                        <li>
+                                            <a class="m-datatable__pager-link m-datatable__pager-link-number m-datatable__pager-link--active" data-page="1" title="1">1</a>
+                                        </li>
+                                        <li><a class="m-datatable__pager-link m-datatable__pager-link-number" data-page="2" title="2">2</a></li>
+                                        <li><a class="m-datatable__pager-link m-datatable__pager-link-number" data-page="3" title="3">3</a></li>
+                                        <li><a class="m-datatable__pager-link m-datatable__pager-link-number" data-page="4" title="4">4</a></li>
+                                        <li><a title="More pages" class="m-datatable__pager-link m-datatable__pager-link--more-next" data-page="7"><i class="la la-ellipsis-h"></i></a></li>
+                                        <li><a title="Next" class="m-datatable__pager-link m-datatable__pager-link--next" data-page="2"><i class="la la-angle-right"></i></a></li>
+                                        <li><a title="Last" class="m-datatable__pager-link m-datatable__pager-link--last" data-page="10"><i class="la la-angle-double-right"></i></a></li>
+                                    </ul>
+                                </div>
+                                <!--end: Datatable -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__foot m-portlet__foot--fit">
+                        <div class="m-form__actions m-form__actions">
+                            <button type="submit" class="btn btn-primary">
+                                Lưu
+                            </button>
+                            <button type="reset" class="btn btn-secondary">
+                                Hủy
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+         
+        </div>
+    </div>
+</div>
+

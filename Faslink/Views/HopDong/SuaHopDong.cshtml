@@ -1,0 +1,216 @@
+﻿
+@{
+    ViewBag.Title = "SuaHopDong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="m-subheader ">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Thêm hợp đồng
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="/Home/index" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Nhân sự
+                        </span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Thêm hợp đồng
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="m-content">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="m-alert m-alert--outline alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                <strong>
+                    Chúc mừng!
+                </strong>
+                Bạn đã thêm thành công hợp đồng
+            </div>
+            <div class="m-alert m-alert--outline alert alert-warning alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                <strong>
+                    Cảnh báo!
+                </strong>
+                Vui lòng kiểm tra lại thông tin.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="m-content">
+    <div class="row ">
+        <div class="col-sm-6">
+            <div class="m-portlet" |>
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <span class="m-portlet__head-icon m--hide">
+                                <i class="la la-gear"></i>
+                            </span>
+                            <h3 class="m-portlet__head-text">
+                                Thêm hợp đồng lao động
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <form class="m-form">
+                    <div class="m-portlet__body">
+                        <div class="m-form__section m-form__section--first">
+                            <div class="form-group m-form__group">
+                                <label for="example_input_full_name">
+                                    Họ tên
+                                </label>
+                                <input class="form-control m-input" type="search" placeholder="nhập tên nhân viên...">
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Bộ phận
+                                </label>
+                                <input class="form-control m-input" type="text" readonly />
+                            </div>
+                            <div class="form-group m-form__group">
+
+                                <label>
+                                    Ngày sinh
+                                </label>
+                                <input type="text" class="form-control" style="width:135px" readonly />
+
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Nơi sinh
+                                </label>
+                                <textarea class="form-control" readonly></textarea>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Địa chỉ thường trú
+                                </label>
+                                <textarea class="form-control" rows="1" readonly></textarea>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Số chứng minh nhân dân
+                                </label>
+                                <input class="form-control " id="exampleTextarea" style="width:135px" readonly />
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Ngày cấp
+                                </label>
+                                <input type="text" class="form-control" style="width:135px" readonly />
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Nơi cấp
+                                </label>
+                                <textarea class="form-control " rows="1" readonly></textarea>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Địa điểm làm việc
+                                </label>
+                                <textarea class="form-control" rows="1" readonly></textarea>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Loại hợp đồng
+                                </label>
+                                <select class="form-control chieucao" style="width:130px; text-indent: 3px;">
+                                    <option>Chính thức</option>
+                                    <option>Thử việc</option>
+                                </select>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <div class="row" style="color:#0c0a0a">
+                                    <div class="col-sm-4">
+                                        <label>Từ ngày</label>
+                                        <input type="text" placeholder="Chọn ngày" class="form-control" id="m_datepicker_1" style="width:135px" readonly />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label>Đến ngày</label>
+                                        <input type="text" placeholder="Chọn ngày" class="form-control" id="m_datepicker_1" style="width:135px" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Chức danh chuyên môn
+                                </label>
+                                <input class="form-control" placeholder="nhập chức danh chuyên môn" />
+
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Nghề nghiệp
+                                </label>
+                                <input class="form-control" placeholder="nhập nghề nghiệp" />
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Nghề nghiệp
+                                </label>
+                                <input class="form-control" placeholder="nhập nghề nghiệp" />
+                            </div>
+
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Số hợp đồng
+                                </label>
+                                <input class="form-control" placeholder="nhập số hợp đồng" />
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Ngày tạo hợp đồng
+                                </label>
+                                <input type="text" class="form-control" id="m_datepicker_1" placeholder="chọn ngày" style="width:135px" readonly />
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Mức lương
+                                </label>
+                                <input class="form-control" onkeypress="return isNumberKey(event)" style="width:135px" placeholder="nhập mức lương" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__foot m-portlet__foot--fit">
+                        <div class="m-form__actions m-form__actions">
+                            <button type="submit" class="btn btn-primary">
+                                Lưu
+                            </button>
+                            <button type="reset" class="btn btn-secondary">
+                                Hủy
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

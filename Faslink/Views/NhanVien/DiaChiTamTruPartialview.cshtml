@@ -1,0 +1,24 @@
+﻿
+@model Faslink.Models.Database.DiaChiLienLac
+<div class="form-group m-form__group">
+    <div class="row">
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.IdTinh_TP)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @Html.DropDownList("idTinh_TPTamTru", new SelectList(new string[] { }), new { @id = "ddlTinhTamTru", @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.IdQuan_Huyen)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @Html.DropDownList("idQuan_HuyenTamTru", new SelectList(new string[] { }), new { @id = "ddlQuanTamTru", @class = "form-control" })
+        </div>
+    </div>
+</div>

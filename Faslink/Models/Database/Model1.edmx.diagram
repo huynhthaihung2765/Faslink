@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="76809898a4a44026a5118b0a640f1d0d" Name="Diagram1">
+        <EntityTypeShape EntityType="FaslinkModel.BHXHBHYT" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.CongNhanMoi" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.CongTac" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.ChiTietNghiPhep" Width="1.5" PointX="8.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.ChucVu" Width="1.5" PointX="3.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.ChuyenCan" Width="1.5" PointX="2.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.ChuyenCongTac" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.DiaChiThuongTru" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.DiaDiemLamViec" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.DonNghiPhep" Width="1.5" PointX="5.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.DonXinNghiThaiSan" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.HopDongLaoDong" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.KhamThaiSan" Width="1.5" PointX="5.25" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.LichLamViec" Width="1.5" PointX="3.75" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.LichNhanVien" Width="1.5" PointX="6" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.LoaiHopDong" Width="1.5" PointX="0.75" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.LoaiPhep" Width="1.5" PointX="3.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.LogBoPhan" Width="1.5" PointX="3" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.LogHDLD" Width="1.5" PointX="5.25" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.NuoiConNho" Width="1.5" PointX="3" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.NghiPhep" Width="1.5" PointX="6" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.NhanVienChucVu" Width="1.5" PointX="6" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.Quan" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.Tinh" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.TinhTrangHopDong" Width="1.5" PointX="5.25" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.ThaiSan" Width="1.5" PointX="3" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.ThuongPhat" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FaslinkModel.TrinhDo" Width="1.5" PointX="3" PointY="49.375" IsExpanded="true" />
+        <AssociationConnector Association="FaslinkModel.FK__ChiTietNghiPhep__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="FaslinkModel.FK__NhanVienC__IdChu__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="FaslinkModel.FK__HopDongLa__IdLoa__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="FaslinkModel.FK__LogHDLD__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="FaslinkModel.FK__TinhTrangHopDong__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="FaslinkModel.FK__KhamThaiSan__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="FaslinkModel.FK__LichNhanV__IdLic__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="FaslinkModel.FK_NghiPhep_LoaiPhep" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FaslinkModel.NhanVien" Width="1.5" PointX="0.75" PointY="24.25" />
+        <AssociationConnector Association="FaslinkModel.FK__CongTac__IdNhanV__4222D4EF" />
+        <AssociationConnector Association="FaslinkModel.FK__DiaChiThu__IdNha__30C33EC3" />
+        <AssociationConnector Association="FaslinkModel.FK__DiaDiemLa__IdNha__4CA06362" />
+        <AssociationConnector Association="FaslinkModel.FK_DonXinNghiThaiSan_NhanVien" />
+        <AssociationConnector Association="FaslinkModel.FK__HopDongLa__IdNha__4BAC3F29" />
+        <AssociationConnector Association="FaslinkModel.FK__LichNhanV__IdNha__4AB81AF0" />
+        <AssociationConnector Association="FaslinkModel.FK_LogBoPhan_NhanVien1" />
+        <AssociationConnector Association="FaslinkModel.FK__NuoiConNh__IdNha__778AC167" />
+        <AssociationConnector Association="FaslinkModel.FK_NghiPhep_NhanVien" />
+        <AssociationConnector Association="FaslinkModel.FK__NhanVienC__IdNha__48CFD27E" />
+        <AssociationConnector Association="FaslinkModel.FK__ThaiSan__IdNhanV__46E78A0C" />
+        <AssociationConnector Association="FaslinkModel.FK__TrinhDo__IdNhanV__440B1D61" />
+        <EntityTypeShape EntityType="FaslinkModel.DiaChiLienLac" Width="1.5" PointX="3" PointY="53.25" />
+        <AssociationConnector Association="FaslinkModel.FK_DiaChiLienLac_NhanVien" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

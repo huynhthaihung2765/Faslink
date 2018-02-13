@@ -1,0 +1,16 @@
+﻿@model Faslink.Models.Database.NhanVien
+@{
+    ViewBag.Title = "XoaNhanVien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa Nhân viên</h2>
+@using (Html.BeginForm())
+{
+    <h4>Bạn muốn xóa</h4>
+    <p>@Html.DisplayFor(model => model.IdNhanVien)</p>
+    <p>@Html.DisplayFor(model => model.HoTen)</p>
+    <input type="submit" value="Xóa" />
+}
+
+

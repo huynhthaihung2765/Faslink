@@ -1,0 +1,2723 @@
+﻿
+@{
+    ViewBag.Title = "TaoLichLamViec";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="m-subheader ">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Tạo lịch làm việc
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Nhân Sự
+                        </span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Tạo lịch làm việc
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="padding-left: 15px;">
+    <div class="col-sm-6">
+        <div class="m-alert m-alert--outline alert alert-success alert-dismissible " role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+            <strong>
+                Thành công!
+            </strong>
+            Bạn đã thêm lịch thành công.
+        </div>
+        <div class="m-alert m-alert--outline alert alert-warning alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+            <strong>
+                Cảnh Báo!
+            </strong>
+            Vui lòng kiểm tra lại thông tin.
+        </div>
+    </div>
+</div>
+<div class="m-content">
+    <div class="row">
+        <div class="m-portlet m-portlet--mobile col-md-12">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                            Lịch làm việc
+                        </h3>
+                    </div>
+                </div>
+                <div class="m-portlet__head-tools">
+                    <ul class="m-portlet__nav">
+                        <li class="m-portlet__nav-item">
+                            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" data-dropdown-toggle="hover" aria-expanded="true">
+                                <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                                    <i class="la la-ellipsis-h m--font-brand"></i>
+                                </a>
+                                <div class="m-dropdown__wrapper">
+                                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust" style="left: auto; right: 21.5px;"></span>
+                                    <div class="m-dropdown__inner">
+                                        <div class="m-dropdown__body">
+                                            <div class="m-dropdown__content">
+                                                <ul class="m-nav">
+                                                    <li class="m-nav__section m-nav__section--first">
+                                                        <span class="m-nav__section-text">
+                                                            Chức Năng
+                                                        </span>
+                                                    </li>
+                                                    <li class="m-nav__item">
+                                                        <a href="/Lich/TaoLichLamViec" class="btn btn-primary">
+                                                            <span>
+                                                                <span>
+                                                                    Thêm Mới
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                        <div class="m-separator m-separator--dashed d-xl-none"></div>
+                                                    </li>
+                                                    <li class="m-nav__section">
+                                                        <a href="#" class="btn btn-primary">
+                                                            <span>
+                                                                <span>
+                                                                    Xuất Báo Cáo
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                        <div class="m-separator m-separator--dashed d-xl-none"></div>
+                                                    </li>
+                                                    <li class="m-nav__separator m-nav__separator--fit m--hide"></li>
+                                                    <li class="m-nav__item m--hide">
+                                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                                            Submit
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="m-portlet__body">
+                <!--begin: Search Form -->
+                <div class="m-form__section m-form__section--first">
+                    <div class="form-group m-form__group">
+                        <label>
+                            Tên lịch
+                        </label>
+                        <input class="form-control m-input col-6" placeholder="Nhập tên lịch" type="text">
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label>
+                            Chọn thời gian
+                        </label>
+                        <span class="m-form__help">
+                            Click chọn thời gian phù hợp
+                        </span>
+                    </div>
+                    <!--begin::Table chon lich-->
+                    <div class="m-section">
+                        <div class="m-section__content">
+                            <table class="table table-bordered m-table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            #
+                                        </th>
+                                        <th>
+                                            Thứ 2
+                                        </th>
+                                        <th>
+                                            Thứ 3
+                                        </th>
+                                        <th>
+                                            Thứ 4
+                                        </th>
+                                        <th>
+                                            Thứ 5
+                                        </th>
+                                        <th>
+                                            Thứ 6
+                                        </th>
+                                        <th>
+                                            Thứ 7
+                                        </th>
+                                        <th>
+                                            CN
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--1 - 12 start-->
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            1h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            2h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            3h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            4h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            5h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            6h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            7h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            8h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            9h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            10h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            11h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            12h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <!-- 1- 12 end -->
+                                    <!--1 - 12 start-->
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            13h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            14h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            15h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            16h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            17h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            18h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            19h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            20h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            21h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            22h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            23h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan="2" scope="row">
+                                            24h
+                                        </th>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <label class="m-checkbox m-checkbox--single m-checkbox--all m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox">
+                                                <span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <!-- 1- 12 end -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="m-portlet__foot m-portlet__foot--fit">
+                            <div class="m-form__actions">
+                                <br />
+                                <button type="reset" class="btn btn-primary">
+                                    Lưu
+                                </button>
+                                <button type="reset" class="btn btn-secondary">
+                                    Hủy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Section-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

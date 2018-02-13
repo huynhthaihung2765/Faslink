@@ -1,0 +1,9 @@
+﻿@model  Faslink.Models.Database.NhanVien
+<div class="form-group m-form__group">
+    <div class="row">
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.HonNhan)
+            @Html.DropDownList("honNhan", new SelectList(new string[] { }), new { @id = "ddlHonNhan", @class = "form-control", @name = "HonNhan" })
+        </div>
+    </div>
+</div>
