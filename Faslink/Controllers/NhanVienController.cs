@@ -8,6 +8,7 @@ using System.Xml.Linq;
 using Newtonsoft.Json;
 using Faslink.Models.Database;
 using System.Net;
+using System.Globalization;
 
 namespace Faslink.Controllers
 {
@@ -182,6 +183,60 @@ namespace Faslink.Controllers
             }
 
             return View(chiTietNVTheoId);
+        }
+        [HttpPost]
+        public ActionResult SuaNhanVien(int id, FormCollection collection)
+        {
+            try
+            {
+                ChiTietNhanVienTheoId_Result chiTietNVTheoId = db.ChiTietNhanVienTheoId(id).First();
+                if(ModelState.IsValid)
+                {
+                    int IdGioiTinh = int.Parse(collection["IdGioiTinh"]);
+                    //if(IdGioiTinh == 1)
+                    //{
+                    //    ViewBag.gioitinh = "Nam";
+                    //}
+                    //if (IdGioiTinh == 2)
+                    //{
+                    //    ViewBag.gioitinh = "Nữ";
+                    //}
+                    db.SuaNhanVien(
+                    id,
+                    collection["HoTen"],
+                    IdGioiTinh,
+                    DateTime.Parse(collection["NgayVao"]),
+                    DateTime.Parse(collection["NgaySinh"]),
+                    collection["noiSinh"],
+                    collection["honNhan"],
+                    collection["dienThoai"],
+                    collection["dienThoaiNguoiThan"],
+                    collection["emailCTy"],
+                    collection["emailCaNhan"],
+                    collection["quocTich"],
+                    collection["tonGiao"],
+                    collection["danToc"],
+                    collection["hinh"],
+                    Int32.Parse(collection["SoNguoiPhuThuoc"]),
+                    bool.Parse(collection["trangThai"]),
+                    Int32.Parse(collection["Mvt"]),
+                    collection["ka"],
+                    collection["to"],
+                    DateTime.Parse(collection["NgayNghi"]),
+                    collection["nguoiGioiThieu"],
+                    collection["soCMNT"],
+                    DateTime.Parse(collection["NgayCap"]),
+                    collection["noiCap"],
+                    collection["nguyenQuan"]
+                    );
+                }
+                return RedirectToAction("DanhSachNhanVien");
+            }
+            catch(Exception e)
+            {
+                ViewBag.error = e;
+                return View();
+            }
         }
         public JsonResult LoadTinhThanh()
         {
