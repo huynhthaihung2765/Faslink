@@ -18,6 +18,7 @@ namespace Faslink.Models.Database
         public NhanVien()
         {
             this.CongTac = new HashSet<CongTac>();
+            this.DiaChiLienLac = new HashSet<DiaChiLienLac>();
             this.DiaChiThuongTru = new HashSet<DiaChiThuongTru>();
             this.DiaDiemLamViec = new HashSet<DiaDiemLamViec>();
             this.DonXinNghiThaiSan = new HashSet<DonXinNghiThaiSan>();
@@ -29,7 +30,6 @@ namespace Faslink.Models.Database
             this.NhanVienChucVu = new HashSet<NhanVienChucVu>();
             this.ThaiSan = new HashSet<ThaiSan>();
             this.TrinhDo = new HashSet<TrinhDo>();
-            this.DiaChiLienLac = new HashSet<DiaChiLienLac>();
         }
     
         public int IdNhanVien { get; set; }
@@ -62,6 +62,8 @@ namespace Faslink.Models.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CongTac> CongTac { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DiaChiLienLac> DiaChiLienLac { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DiaChiThuongTru> DiaChiThuongTru { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DiaDiemLamViec> DiaDiemLamViec { get; set; }
@@ -83,7 +85,5 @@ namespace Faslink.Models.Database
         public virtual ICollection<ThaiSan> ThaiSan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TrinhDo> TrinhDo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DiaChiLienLac> DiaChiLienLac { get; set; }
     }
 }

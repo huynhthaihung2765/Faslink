@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="FaslinkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="FaslinkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BHXHBHYT">
           <Key>
             <PropertyRef Name="SoBHXH" />
@@ -78,7 +78,7 @@
           </Key>
           <Property Name="IdLienLac" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SoNhaDuong" Type="nvarchar" MaxLength="1000" Nullable="false" />
-          <Property Name="Thoigian" Type="datetime" />
+          <Property Name="Thoigian" Type="date" />
           <Property Name="TrangThai" Type="bit" />
           <Property Name="IdTinh_TP" Type="int" Nullable="false" />
           <Property Name="IdNhanVien" Type="int" Nullable="false" />
@@ -365,7 +365,6 @@
         <EntityType Name="TrinhDo">
           <Key>
             <PropertyRef Name="IdTrinhDo" />
-            <PropertyRef Name="IdNhanVien" />
           </Key>
           <Property Name="IdTrinhDo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HocVan" Type="nvarchar" MaxLength="500" />
@@ -388,7 +387,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ChiTietNghiPhep__6D0D32F4">
+        <Association Name="FK__ChiTietNghiPhep__59FA5E80">
           <End Role="NghiPhep" Type="Self.NghiPhep" Multiplicity="1" />
           <End Role="ChiTietNghiPhep" Type="Self.ChiTietNghiPhep" Multiplicity="*" />
           <ReferentialConstraint>
@@ -784,7 +783,7 @@
             <End Role="NhanVien" EntitySet="NhanVien" />
             <End Role="CongTac" EntitySet="CongTac" />
           </AssociationSet>
-          <AssociationSet Name="FK__ChiTietNghiPhep__6D0D32F4" Association="Self.FK__ChiTietNghiPhep__6D0D32F4">
+          <AssociationSet Name="FK__ChiTietNghiPhep__59FA5E80" Association="Self.FK__ChiTietNghiPhep__59FA5E80">
             <End Role="NghiPhep" EntitySet="NghiPhep" />
             <End Role="ChiTietNghiPhep" EntitySet="ChiTietNghiPhep" />
           </AssociationSet>
@@ -865,7 +864,8 @@
             <End Role="NghiPhep" EntitySet="NghiPhep" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FaslinkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -898,7 +898,7 @@
           <Property Name="NguoiDuyet" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="NgaySua" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK__CongTac__IdNhanV__4222D4EF" FromRole="CongTac" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK__CongTac__IdNhanV__4222D4EF" FromRole="CongTac" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="ChiTietNghiPhep">
           <Key>
@@ -915,7 +915,7 @@
           <Property Name="IdNghiPhep" Type="Int32" Nullable="false" />
           <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
           <Property Name="IdLoaiPhep" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="NghiPhep" Relationship="Self.FK__ChiTietNghiPhep__6D0D32F4" FromRole="ChiTietNghiPhep" ToRole="NghiPhep" />
+          <NavigationProperty Name="NghiPhep" Relationship="Self.FK__ChiTietNghiPhep__59FA5E80" FromRole="ChiTietNghiPhep" ToRole="NghiPhep" />
         </EntityType>
         <EntityType Name="ChucVu">
           <Key>
@@ -937,6 +937,21 @@
           </Key>
           <Property Name="IdChuyenCongTac" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="DiaChiLienLac">
+          <Key>
+            <PropertyRef Name="IdLienLac" />
+            <PropertyRef Name="IdTinh_TP" />
+            <PropertyRef Name="IdNhanVien" />
+          </Key>
+          <Property Name="IdLienLac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoNhaDuong" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Thoigian" Type="DateTime" Precision="0" />
+          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="IdTinh_TP" Type="Int32" Nullable="false" />
+          <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
+          <Property Name="IdQuan_Huyen" Type="Int32" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_DiaChiLienLac_NhanVien" FromRole="DiaChiLienLac" ToRole="NhanVien" />
+        </EntityType>
         <EntityType Name="DiaChiThuongTru">
           <Key>
             <PropertyRef Name="IdThuongTru" />
@@ -949,7 +964,7 @@
           <Property Name="TrangThai" Type="Boolean" />
           <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
           <Property Name="IdQuan_Huyen" Type="Int32" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK__DiaChiThu__IdNha__30C33EC3" FromRole="DiaChiThuongTru" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK__DiaChiThu__IdNha__30C33EC3" FromRole="DiaChiThuongTru" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="DiaDiemLamViec">
           <Key>
@@ -959,7 +974,7 @@
           <Property Name="IdDiaDiemLamViec" Type="Int32" Nullable="false" />
           <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK__DiaDiemLa__IdNha__4CA06362" FromRole="DiaDiemLamViec" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK__DiaDiemLa__IdNha__4CA06362" FromRole="DiaDiemLamViec" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="DonNghiPhep">
           <Key>
@@ -989,7 +1004,7 @@
           <Property Name="ThoiGianKetThuc" Type="DateTime" Precision="0" />
           <Property Name="TuGio" Type="Time" Precision="7" />
           <Property Name="ToiGio" Type="Time" Precision="7" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK_DonXinNghiThaiSan_NhanVien" FromRole="DonXinNghiThaiSan" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_DonXinNghiThaiSan_NhanVien" FromRole="DonXinNghiThaiSan" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="HopDongLaoDong">
           <Key>
@@ -1013,9 +1028,9 @@
           <Property Name="TuNgay" Type="DateTime" Precision="0" />
           <Property Name="DenNgay" Type="DateTime" Precision="0" />
           <NavigationProperty Name="LoaiHopDong" Relationship="Self.FK__HopDongLa__IdLoa__571DF1D5" FromRole="HopDongLaoDong" ToRole="LoaiHopDong" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK__HopDongLa__IdNha__4BAC3F29" FromRole="HopDongLaoDong" ToRole="NhanVien" />
           <NavigationProperty Name="LogHDLD" Relationship="Self.FK__LogHDLD__4D94879B" FromRole="HopDongLaoDong" ToRole="LogHDLD" />
           <NavigationProperty Name="TinhTrangHopDong" Relationship="Self.FK__TinhTrangHopDong__4E88ABD4" FromRole="HopDongLaoDong" ToRole="TinhTrangHopDong" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK__HopDongLa__IdNha__4BAC3F29" FromRole="HopDongLaoDong" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="KhamThaiSan">
           <Key>
@@ -1058,7 +1073,7 @@
           <Property Name="Ngay" Type="DateTime" Precision="0" />
           <Property Name="GhiChu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LichLamViec" Relationship="Self.FK__LichNhanV__IdLic__5EBF139D" FromRole="LichNhanVien" ToRole="LichLamViec" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK__LichNhanV__IdNha__4AB81AF0" FromRole="LichNhanVien" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK__LichNhanV__IdNha__4AB81AF0" FromRole="LichNhanVien" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="LoaiHopDong">
           <Key>
@@ -1084,7 +1099,7 @@
           <Property Name="NgayThayDoi" Type="DateTime" Precision="0" />
           <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
           <Property Name="IdBoPhan" Type="Int32" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK_LogBoPhan_NhanVien1" FromRole="LogBoPhan" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_LogBoPhan_NhanVien1" FromRole="LogBoPhan" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="LogHDLD">
           <Key>
@@ -1111,7 +1126,7 @@
           <Property Name="NgaySinhCon" Type="DateTime" Precision="0" />
           <Property Name="TuoiCon" Type="Double" />
           <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK__NuoiConNh__IdNha__778AC167" FromRole="NuoiConNho" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK__NuoiConNh__IdNha__778AC167" FromRole="NuoiConNho" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="NghiPhep">
           <Key>
@@ -1127,9 +1142,53 @@
           <Property Name="NguoiDuyet" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
           <Property Name="IdLoaiPhep" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ChiTietNghiPhep" Relationship="Self.FK__ChiTietNghiPhep__6D0D32F4" FromRole="NghiPhep" ToRole="ChiTietNghiPhep" />
+          <NavigationProperty Name="ChiTietNghiPhep" Relationship="Self.FK__ChiTietNghiPhep__59FA5E80" FromRole="NghiPhep" ToRole="ChiTietNghiPhep" />
           <NavigationProperty Name="LoaiPhep" Relationship="Self.FK_NghiPhep_LoaiPhep" FromRole="NghiPhep" ToRole="LoaiPhep" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK_NghiPhep_NhanVien" FromRole="NghiPhep" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_NghiPhep_NhanVien" FromRole="NghiPhep" ToRole="NhanVien" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="IdNhanVien" />
+          </Key>
+          <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IdGioiTinh" Type="Int32" />
+          <Property Name="NgayVao" Type="DateTime" Precision="0" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="NoiSinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HonNhan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoaiNguoiThan" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EmailCTy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmailCaNhan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="QuocTich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TonGiao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DanToc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Hinh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SoNguoiPhuThuoc" Type="Int32" />
+          <Property Name="TrangThai" Type="Boolean" />
+          <Property Name="Mvt" Type="Int32" />
+          <Property Name="Ka" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ToLamViec" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NgayNghi" Type="DateTime" Precision="0" />
+          <Property Name="NguoiGioiThieu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SoCMND" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NgayCap" Type="DateTime" Precision="0" />
+          <Property Name="NoiCap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NguyenQuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CongTac" Relationship="Self.FK__CongTac__IdNhanV__4222D4EF" FromRole="NhanVien" ToRole="CongTac" />
+          <NavigationProperty Name="DiaChiLienLac" Relationship="Self.FK_DiaChiLienLac_NhanVien" FromRole="NhanVien" ToRole="DiaChiLienLac" />
+          <NavigationProperty Name="DiaChiThuongTru" Relationship="Self.FK__DiaChiThu__IdNha__30C33EC3" FromRole="NhanVien" ToRole="DiaChiThuongTru" />
+          <NavigationProperty Name="DiaDiemLamViec" Relationship="Self.FK__DiaDiemLa__IdNha__4CA06362" FromRole="NhanVien" ToRole="DiaDiemLamViec" />
+          <NavigationProperty Name="DonXinNghiThaiSan" Relationship="Self.FK_DonXinNghiThaiSan_NhanVien" FromRole="NhanVien" ToRole="DonXinNghiThaiSan" />
+          <NavigationProperty Name="HopDongLaoDong" Relationship="Self.FK__HopDongLa__IdNha__4BAC3F29" FromRole="NhanVien" ToRole="HopDongLaoDong" />
+          <NavigationProperty Name="LichNhanVien" Relationship="Self.FK__LichNhanV__IdNha__4AB81AF0" FromRole="NhanVien" ToRole="LichNhanVien" />
+          <NavigationProperty Name="LogBoPhan" Relationship="Self.FK_LogBoPhan_NhanVien1" FromRole="NhanVien" ToRole="LogBoPhan" />
+          <NavigationProperty Name="NuoiConNho" Relationship="Self.FK__NuoiConNh__IdNha__778AC167" FromRole="NhanVien" ToRole="NuoiConNho" />
+          <NavigationProperty Name="NghiPhep" Relationship="Self.FK_NghiPhep_NhanVien" FromRole="NhanVien" ToRole="NghiPhep" />
+          <NavigationProperty Name="NhanVienChucVu" Relationship="Self.FK__NhanVienC__IdNha__48CFD27E" FromRole="NhanVien" ToRole="NhanVienChucVu" />
+          <NavigationProperty Name="ThaiSan" Relationship="Self.FK__ThaiSan__IdNhanV__46E78A0C" FromRole="NhanVien" ToRole="ThaiSan" />
+          <NavigationProperty Name="TrinhDo" Relationship="Self.FK__TrinhDo__IdNhanV__440B1D61" FromRole="NhanVien" ToRole="TrinhDo" />
         </EntityType>
         <EntityType Name="NhanVienChucVu">
           <Key>
@@ -1140,7 +1199,7 @@
           <Property Name="IdChucVu" Type="Int32" Nullable="false" />
           <Property Name="ThoiGian" Type="DateTime" Precision="0" />
           <NavigationProperty Name="ChucVu" Relationship="Self.FK__NhanVienC__IdChu__5629CD9C" FromRole="NhanVienChucVu" ToRole="ChucVu" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK__NhanVienC__IdNha__48CFD27E" FromRole="NhanVienChucVu" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK__NhanVienC__IdNha__48CFD27E" FromRole="NhanVienChucVu" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="Quan">
           <Key>
@@ -1197,7 +1256,7 @@
           <Property Name="NguoiSua" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
           <NavigationProperty Name="KhamThaiSan" Relationship="Self.FK__KhamThaiSan__4F7CD00D" FromRole="ThaiSan" ToRole="KhamThaiSan" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK__ThaiSan__IdNhanV__46E78A0C" FromRole="ThaiSan" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK__ThaiSan__IdNhanV__46E78A0C" FromRole="ThaiSan" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="ThuongPhat">
           <Key>
@@ -1211,7 +1270,6 @@
         <EntityType Name="TrinhDo">
           <Key>
             <PropertyRef Name="IdTrinhDo" />
-            <PropertyRef Name="IdNhanVien" />
           </Key>
           <Property Name="IdTrinhDo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HocVan" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -1221,9 +1279,21 @@
           <Property Name="ViTinh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="ThoiGian" Type="DateTime" Precision="0" />
           <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK__TrinhDo__IdNhanV__440B1D61" FromRole="TrinhDo" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK__TrinhDo__IdNhanV__440B1D61" FromRole="TrinhDo" ToRole="NhanVien" />
         </EntityType>
-        <Association Name="FK__ChiTietNghiPhep__6D0D32F4">
+        <Association Name="FK__CongTac__IdNhanV__4222D4EF">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="CongTac" Type="Self.CongTac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="CongTac">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChiTietNghiPhep__59FA5E80">
           <End Role="NghiPhep" Type="Self.NghiPhep" Multiplicity="1" />
           <End Role="ChiTietNghiPhep" Type="Self.ChiTietNghiPhep" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1251,6 +1321,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DiaChiLienLac_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="DiaChiLienLac" Type="Self.DiaChiLienLac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="DiaChiLienLac">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DiaChiThu__IdNha__30C33EC3">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="DiaChiThuongTru" Type="Self.DiaChiThuongTru" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="DiaChiThuongTru">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DiaDiemLa__IdNha__4CA06362">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="DiaDiemLamViec" Type="Self.DiaDiemLamViec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="DiaDiemLamViec">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DonXinNghiThaiSan_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="DonXinNghiThaiSan" Type="Self.DonXinNghiThaiSan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="DonXinNghiThaiSan">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__HopDongLa__IdLoa__571DF1D5">
           <End Role="LoaiHopDong" Type="Self.LoaiHopDong" Multiplicity="1" />
           <End Role="HopDongLaoDong" Type="Self.HopDongLaoDong" Multiplicity="*" />
@@ -1260,6 +1378,18 @@
             </Principal>
             <Dependent Role="HopDongLaoDong">
               <PropertyRef Name="IdLoaiHopDong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HopDongLa__IdNha__4BAC3F29">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="HopDongLaoDong" Type="Self.HopDongLaoDong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="HopDongLaoDong">
+              <PropertyRef Name="IdNhanVien" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1321,6 +1451,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__LichNhanV__IdNha__4AB81AF0">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="LichNhanVien" Type="Self.LichNhanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="LichNhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_NghiPhep_LoaiPhep">
           <End Role="LoaiPhep" Type="Self.LoaiPhep" Multiplicity="1" />
           <End Role="NghiPhep" Type="Self.NghiPhep" Multiplicity="*" />
@@ -1333,6 +1475,78 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LogBoPhan_NhanVien1">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="LogBoPhan" Type="Self.LogBoPhan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="LogBoPhan">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NuoiConNh__IdNha__778AC167">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="NuoiConNho" Type="Self.NuoiConNho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="NuoiConNho">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NghiPhep_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="NghiPhep" Type="Self.NghiPhep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="NghiPhep">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NhanVienC__IdNha__48CFD27E">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="NhanVienChucVu" Type="Self.NhanVienChucVu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="NhanVienChucVu">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThaiSan__IdNhanV__46E78A0C">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="ThaiSan" Type="Self.ThaiSan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="ThaiSan">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TrinhDo__IdNhanV__440B1D61">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="TrinhDo" Type="Self.TrinhDo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IdNhanVien" />
+            </Principal>
+            <Dependent Role="TrinhDo">
+              <PropertyRef Name="IdNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="FaslinkEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BHXHBHYT" EntityType="Self.BHXHBHYT" />
           <EntitySet Name="CongNhanMoi" EntityType="Self.CongNhanMoi" />
@@ -1341,6 +1555,7 @@
           <EntitySet Name="ChucVu" EntityType="Self.ChucVu" />
           <EntitySet Name="ChuyenCan" EntityType="Self.ChuyenCan" />
           <EntitySet Name="ChuyenCongTac" EntityType="Self.ChuyenCongTac" />
+          <EntitySet Name="DiaChiLienLac" EntityType="Self.DiaChiLienLac" />
           <EntitySet Name="DiaChiThuongTru" EntityType="Self.DiaChiThuongTru" />
           <EntitySet Name="DiaDiemLamViec" EntityType="Self.DiaDiemLamViec" />
           <EntitySet Name="DonNghiPhep" EntityType="Self.DonNghiPhep" />
@@ -1355,6 +1570,7 @@
           <EntitySet Name="LogHDLD" EntityType="Self.LogHDLD" />
           <EntitySet Name="NuoiConNho" EntityType="Self.NuoiConNho" />
           <EntitySet Name="NghiPhep" EntityType="Self.NghiPhep" />
+          <EntitySet Name="NhanVien" EntityType="Self.NhanVien" />
           <EntitySet Name="NhanVienChucVu" EntityType="Self.NhanVienChucVu" />
           <EntitySet Name="Quan" EntityType="Self.Quan" />
           <EntitySet Name="Tinh" EntityType="Self.Tinh" />
@@ -1362,7 +1578,11 @@
           <EntitySet Name="ThaiSan" EntityType="Self.ThaiSan" />
           <EntitySet Name="ThuongPhat" EntityType="Self.ThuongPhat" />
           <EntitySet Name="TrinhDo" EntityType="Self.TrinhDo" />
-          <AssociationSet Name="FK__ChiTietNghiPhep__6D0D32F4" Association="Self.FK__ChiTietNghiPhep__6D0D32F4">
+          <AssociationSet Name="FK__CongTac__IdNhanV__4222D4EF" Association="Self.FK__CongTac__IdNhanV__4222D4EF">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="CongTac" EntitySet="CongTac" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChiTietNghiPhep__59FA5E80" Association="Self.FK__ChiTietNghiPhep__59FA5E80">
             <End Role="NghiPhep" EntitySet="NghiPhep" />
             <End Role="ChiTietNghiPhep" EntitySet="ChiTietNghiPhep" />
           </AssociationSet>
@@ -1370,8 +1590,28 @@
             <End Role="ChucVu" EntitySet="ChucVu" />
             <End Role="NhanVienChucVu" EntitySet="NhanVienChucVu" />
           </AssociationSet>
+          <AssociationSet Name="FK_DiaChiLienLac_NhanVien" Association="Self.FK_DiaChiLienLac_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="DiaChiLienLac" EntitySet="DiaChiLienLac" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DiaChiThu__IdNha__30C33EC3" Association="Self.FK__DiaChiThu__IdNha__30C33EC3">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="DiaChiThuongTru" EntitySet="DiaChiThuongTru" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DiaDiemLa__IdNha__4CA06362" Association="Self.FK__DiaDiemLa__IdNha__4CA06362">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="DiaDiemLamViec" EntitySet="DiaDiemLamViec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DonXinNghiThaiSan_NhanVien" Association="Self.FK_DonXinNghiThaiSan_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="DonXinNghiThaiSan" EntitySet="DonXinNghiThaiSan" />
+          </AssociationSet>
           <AssociationSet Name="FK__HopDongLa__IdLoa__571DF1D5" Association="Self.FK__HopDongLa__IdLoa__571DF1D5">
             <End Role="LoaiHopDong" EntitySet="LoaiHopDong" />
+            <End Role="HopDongLaoDong" EntitySet="HopDongLaoDong" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HopDongLa__IdNha__4BAC3F29" Association="Self.FK__HopDongLa__IdNha__4BAC3F29">
+            <End Role="NhanVien" EntitySet="NhanVien" />
             <End Role="HopDongLaoDong" EntitySet="HopDongLaoDong" />
           </AssociationSet>
           <AssociationSet Name="FK__LogHDLD__4D94879B" Association="Self.FK__LogHDLD__4D94879B">
@@ -1390,10 +1630,41 @@
             <End Role="LichLamViec" EntitySet="LichLamViec" />
             <End Role="LichNhanVien" EntitySet="LichNhanVien" />
           </AssociationSet>
+          <AssociationSet Name="FK__LichNhanV__IdNha__4AB81AF0" Association="Self.FK__LichNhanV__IdNha__4AB81AF0">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="LichNhanVien" EntitySet="LichNhanVien" />
+          </AssociationSet>
           <AssociationSet Name="FK_NghiPhep_LoaiPhep" Association="Self.FK_NghiPhep_LoaiPhep">
             <End Role="LoaiPhep" EntitySet="LoaiPhep" />
             <End Role="NghiPhep" EntitySet="NghiPhep" />
           </AssociationSet>
+          <AssociationSet Name="FK_LogBoPhan_NhanVien1" Association="Self.FK_LogBoPhan_NhanVien1">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="LogBoPhan" EntitySet="LogBoPhan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NuoiConNh__IdNha__778AC167" Association="Self.FK__NuoiConNh__IdNha__778AC167">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="NuoiConNho" EntitySet="NuoiConNho" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NghiPhep_NhanVien" Association="Self.FK_NghiPhep_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="NghiPhep" EntitySet="NghiPhep" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NhanVienC__IdNha__48CFD27E" Association="Self.FK__NhanVienC__IdNha__48CFD27E">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="NhanVienChucVu" EntitySet="NhanVienChucVu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThaiSan__IdNhanV__46E78A0C" Association="Self.FK__ThaiSan__IdNhanV__46E78A0C">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="ThaiSan" EntitySet="ThaiSan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TrinhDo__IdNhanV__440B1D61" Association="Self.FK__TrinhDo__IdNhanV__440B1D61">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="TrinhDo" EntitySet="TrinhDo" />
+          </AssociationSet>
+          <FunctionImport Name="ChiTietNhanVienTheoId" ReturnType="Collection(FaslinkModel.ChiTietNhanVienTheoId_Result)">
+            <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="DanhSachNhanVien" ReturnType="Collection(FaslinkModel.DanhSachNhanVien_Result)" />
           <FunctionImport Name="SuaNhanVien">
             <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
@@ -1424,7 +1695,15 @@
             <Parameter Name="NguyenQuan" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ThemBoPhan">
-          <Parameter Name="TenBoPhan" Mode="In" Type="String" />
+            <Parameter Name="TenBoPhan" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ThemDiaChiLienLac" ReturnType="Collection(FaslinkModel.ThemDiaChiLienLac_Result)">
+            <Parameter Name="SoNhaDuong" Mode="In" Type="String" />
+            <Parameter Name="ThoiGian" Mode="In" Type="DateTime" />
+            <Parameter Name="TrangThai" Mode="In" Type="Boolean" />
+            <Parameter Name="IdTinh_TP" Mode="In" Type="Int32" />
+            <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
+            <Parameter Name="IdQuan_Huyen" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ThemDiaChiThuongTru" ReturnType="Collection(FaslinkModel.ThemDiaChiThuongTru_Result)">
             <Parameter Name="IdTinh_TP" Mode="In" Type="Int32" />
@@ -1438,67 +1717,6 @@
             <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
             <Parameter Name="IdBoPhan" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="ThemTrinhDo" ReturnType="Collection(FaslinkModel.ThemTrinhDo_Result)">
-            <Parameter Name="HocVan" Mode="In" Type="String" />
-            <Parameter Name="TruongHoc" Mode="In" Type="String" />
-            <Parameter Name="ChuyenMon" Mode="In" Type="String" />
-            <Parameter Name="NgoaiNgu" Mode="In" Type="String" />
-            <Parameter Name="ViTinh" Mode="In" Type="String" />
-            <Parameter Name="ThoiGian" Mode="In" Type="DateTime" />
-            <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="XoaNhanVien">
-          <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <EntitySet Name="NhanVien" EntityType="FaslinkModel.NhanVien" />
-          <AssociationSet Name="FK__CongTac__IdNhanV__4222D4EF" Association="FaslinkModel.FK__CongTac__IdNhanV__4222D4EF">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="CongTac" EntitySet="CongTac" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DiaChiThu__IdNha__30C33EC3" Association="FaslinkModel.FK__DiaChiThu__IdNha__30C33EC3">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="DiaChiThuongTru" EntitySet="DiaChiThuongTru" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DiaDiemLa__IdNha__4CA06362" Association="FaslinkModel.FK__DiaDiemLa__IdNha__4CA06362">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="DiaDiemLamViec" EntitySet="DiaDiemLamViec" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DonXinNghiThaiSan_NhanVien" Association="FaslinkModel.FK_DonXinNghiThaiSan_NhanVien">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="DonXinNghiThaiSan" EntitySet="DonXinNghiThaiSan" />
-          </AssociationSet>
-          <AssociationSet Name="FK__HopDongLa__IdNha__4BAC3F29" Association="FaslinkModel.FK__HopDongLa__IdNha__4BAC3F29">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="HopDongLaoDong" EntitySet="HopDongLaoDong" />
-          </AssociationSet>
-          <AssociationSet Name="FK__LichNhanV__IdNha__4AB81AF0" Association="FaslinkModel.FK__LichNhanV__IdNha__4AB81AF0">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="LichNhanVien" EntitySet="LichNhanVien" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LogBoPhan_NhanVien1" Association="FaslinkModel.FK_LogBoPhan_NhanVien1">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="LogBoPhan" EntitySet="LogBoPhan" />
-          </AssociationSet>
-          <AssociationSet Name="FK__NuoiConNh__IdNha__778AC167" Association="FaslinkModel.FK__NuoiConNh__IdNha__778AC167">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="NuoiConNho" EntitySet="NuoiConNho" />
-          </AssociationSet>
-          <AssociationSet Name="FK_NghiPhep_NhanVien" Association="FaslinkModel.FK_NghiPhep_NhanVien">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="NghiPhep" EntitySet="NghiPhep" />
-          </AssociationSet>
-          <AssociationSet Name="FK__NhanVienC__IdNha__48CFD27E" Association="FaslinkModel.FK__NhanVienC__IdNha__48CFD27E">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="NhanVienChucVu" EntitySet="NhanVienChucVu" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ThaiSan__IdNhanV__46E78A0C" Association="FaslinkModel.FK__ThaiSan__IdNhanV__46E78A0C">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="ThaiSan" EntitySet="ThaiSan" />
-          </AssociationSet>
-          <AssociationSet Name="FK__TrinhDo__IdNhanV__440B1D61" Association="FaslinkModel.FK__TrinhDo__IdNhanV__440B1D61">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="TrinhDo" EntitySet="TrinhDo" />
-          </AssociationSet>
           <FunctionImport Name="ThemNhanVien" ReturnType="Collection(FaslinkModel.ThemNhanVien_Result)">
             <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
             <Parameter Name="HoTen" Mode="In" Type="String" />
@@ -1527,316 +1745,31 @@
             <Parameter Name="NoiCap" Mode="In" Type="String" />
             <Parameter Name="NguyenQuan" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="DiaChiLienLac" EntityType="FaslinkModel.DiaChiLienLac" />
-          <AssociationSet Name="FK_DiaChiLienLac_NhanVien" Association="FaslinkModel.FK_DiaChiLienLac_NhanVien">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="DiaChiLienLac" EntitySet="DiaChiLienLac" />
-          </AssociationSet>
-          <FunctionImport Name="ThemDiaChiLienLac" ReturnType="Collection(FaslinkModel.ThemDiaChiLienLac_Result)">
-            <Parameter Name="SoNhaDuong" Mode="In" Type="String" />
+          <FunctionImport Name="ThemTrinhDo" ReturnType="Collection(FaslinkModel.ThemTrinhDo_Result)">
+            <Parameter Name="HocVan" Mode="In" Type="String" />
+            <Parameter Name="TruongHoc" Mode="In" Type="String" />
+            <Parameter Name="ChuyenMon" Mode="In" Type="String" />
+            <Parameter Name="NgoaiNgu" Mode="In" Type="String" />
+            <Parameter Name="ViTinh" Mode="In" Type="String" />
             <Parameter Name="ThoiGian" Mode="In" Type="DateTime" />
-            <Parameter Name="TrangThai" Mode="In" Type="Boolean" />
-            <Parameter Name="IdTinh_TP" Mode="In" Type="Int32" />
             <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
-            <Parameter Name="IdQuan_Huyen" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="XoaDiaChiLienLac">
-          <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
+            <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="XoaDiaChiThuongTru">
-          <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
+            <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="XoaLogBoPhan">
-          <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
+            <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="XoaNhanVien">
+            <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="XoaTrinhDo">
-          <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="ChiTietNhanVienTheoId" ReturnType="Collection(FaslinkModel.ChiTietNhanVienTheoId_Result)">
             <Parameter Name="IdNhanVien" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="DanhSachNhanVien_Result">
-          <Property Type="String" Name="Hinh" Nullable="true" MaxLength="200" />
-          <Property Type="Int32" Name="IdNhanVien" Nullable="false" />
-          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="NgayVao" Nullable="true" />
-          <Property Type="Boolean" Name="TrangThai" Nullable="true" />
-          <Property Type="Int32" Name="IdBoPhan" Nullable="true" />
-          <Property Type="DateTime" Name="NgayThayDoi" Nullable="true" Precision="23" />
-        </ComplexType>
-        <ComplexType Name="ThemDiaChiThuongTru_Result">
-          <Property Type="Int32" Name="IdTinh" Nullable="true" />
-          <Property Type="String" Name="SoNhaDuong" Nullable="true" MaxLength="1000" />
-          <Property Type="Boolean" Name="TrangThai" Nullable="true" />
-          <Property Type="Int32" Name="IdNhanVien" Nullable="true" />
-          <Property Type="Int32" Name="IdQuan_Huyen" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="ThemLogBoPhan_Result">
-          <Property Type="DateTime" Name="NgayThayDoi" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="IdNhanVien" Nullable="true" />
-          <Property Type="Int32" Name="IdBoPhan" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="ThemTrinhDo_Result">
-          <Property Type="String" Name="HocVan" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="TruongHoc" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="ChuyenMon" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="NgoaiNgu" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="ViTinh" Nullable="true" MaxLength="500" />
-          <Property Type="DateTime" Name="ThoiGian" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="IdNhanVien" Nullable="true" />
-        </ComplexType>
-        <EntityType Name="NhanVien">
-          <Key>
-            <PropertyRef Name="IdNhanVien" />
-          </Key>
-          <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
-          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="IdGioiTinh" Type="Int32" />
-          <Property Name="NgayVao" Type="DateTime" Precision="0" />
-          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
-          <Property Name="NoiSinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="HonNhan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="DienThoaiNguoiThan" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="EmailCTy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="EmailCaNhan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="QuocTich" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="TonGiao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DanToc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Hinh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="SoNguoiPhuThuoc" Type="Int32" />
-          <Property Name="TrangThai" Type="Boolean" />
-          <Property Name="Mvt" Type="Int32" />
-          <Property Name="Ka" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ToLamViec" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NgayNghi" Type="DateTime" Precision="0" />
-          <Property Name="NguoiGioiThieu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SoCMND" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NgayCap" Type="DateTime" Precision="0" />
-          <Property Name="NoiCap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NguyenQuan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CongTac" Relationship="FaslinkModel.FK__CongTac__IdNhanV__4222D4EF" FromRole="NhanVien" ToRole="CongTac" />
-          <NavigationProperty Name="DiaChiThuongTru" Relationship="FaslinkModel.FK__DiaChiThu__IdNha__30C33EC3" FromRole="NhanVien" ToRole="DiaChiThuongTru" />
-          <NavigationProperty Name="DiaDiemLamViec" Relationship="FaslinkModel.FK__DiaDiemLa__IdNha__4CA06362" FromRole="NhanVien" ToRole="DiaDiemLamViec" />
-          <NavigationProperty Name="DonXinNghiThaiSan" Relationship="FaslinkModel.FK_DonXinNghiThaiSan_NhanVien" FromRole="NhanVien" ToRole="DonXinNghiThaiSan" />
-          <NavigationProperty Name="HopDongLaoDong" Relationship="FaslinkModel.FK__HopDongLa__IdNha__4BAC3F29" FromRole="NhanVien" ToRole="HopDongLaoDong" />
-          <NavigationProperty Name="LichNhanVien" Relationship="FaslinkModel.FK__LichNhanV__IdNha__4AB81AF0" FromRole="NhanVien" ToRole="LichNhanVien" />
-          <NavigationProperty Name="LogBoPhan" Relationship="FaslinkModel.FK_LogBoPhan_NhanVien1" FromRole="NhanVien" ToRole="LogBoPhan" />
-          <NavigationProperty Name="NuoiConNho" Relationship="FaslinkModel.FK__NuoiConNh__IdNha__778AC167" FromRole="NhanVien" ToRole="NuoiConNho" />
-          <NavigationProperty Name="NghiPhep" Relationship="FaslinkModel.FK_NghiPhep_NhanVien" FromRole="NhanVien" ToRole="NghiPhep" />
-          <NavigationProperty Name="NhanVienChucVu" Relationship="FaslinkModel.FK__NhanVienC__IdNha__48CFD27E" FromRole="NhanVien" ToRole="NhanVienChucVu" />
-          <NavigationProperty Name="ThaiSan" Relationship="FaslinkModel.FK__ThaiSan__IdNhanV__46E78A0C" FromRole="NhanVien" ToRole="ThaiSan" />
-          <NavigationProperty Name="TrinhDo" Relationship="FaslinkModel.FK__TrinhDo__IdNhanV__440B1D61" FromRole="NhanVien" ToRole="TrinhDo" />
-          <NavigationProperty Name="DiaChiLienLac" Relationship="FaslinkModel.FK_DiaChiLienLac_NhanVien" FromRole="NhanVien" ToRole="DiaChiLienLac" />
-        </EntityType>
-        <Association Name="FK__CongTac__IdNhanV__4222D4EF">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.CongTac" Role="CongTac" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="CongTac">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DiaChiThu__IdNha__30C33EC3">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.DiaChiThuongTru" Role="DiaChiThuongTru" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="DiaChiThuongTru">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DiaDiemLa__IdNha__4CA06362">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.DiaDiemLamViec" Role="DiaDiemLamViec" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="DiaDiemLamViec">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DonXinNghiThaiSan_NhanVien">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.DonXinNghiThaiSan" Role="DonXinNghiThaiSan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="DonXinNghiThaiSan">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__HopDongLa__IdNha__4BAC3F29">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.HopDongLaoDong" Role="HopDongLaoDong" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="HopDongLaoDong">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__LichNhanV__IdNha__4AB81AF0">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.LichNhanVien" Role="LichNhanVien" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="LichNhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LogBoPhan_NhanVien1">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.LogBoPhan" Role="LogBoPhan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="LogBoPhan">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__NuoiConNh__IdNha__778AC167">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.NuoiConNho" Role="NuoiConNho" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="NuoiConNho">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_NghiPhep_NhanVien">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.NghiPhep" Role="NghiPhep" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="NghiPhep">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__NhanVienC__IdNha__48CFD27E">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.NhanVienChucVu" Role="NhanVienChucVu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="NhanVienChucVu">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ThaiSan__IdNhanV__46E78A0C">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.ThaiSan" Role="ThaiSan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="ThaiSan">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__TrinhDo__IdNhanV__440B1D61">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.TrinhDo" Role="TrinhDo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="TrinhDo">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <ComplexType Name="ThemNhanVien_Result">
-          <Property Type="Int32" Name="IdNhanVien" Nullable="true" />
-          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="GioiTinh" Nullable="true" />
-          <Property Type="DateTime" Name="NgayVao" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="NgaySinh" Nullable="true" Precision="23" />
-          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="HonNhan" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="DienThoai" Nullable="true" MaxLength="15" />
-          <Property Type="String" Name="DienThoaiNguoiThan" Nullable="true" MaxLength="15" />
-          <Property Type="String" Name="EmailCTy" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="EmailCaNhan" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="QuocTich" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="TonGiao" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="DanToc" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Hinh" Nullable="true" MaxLength="200" />
-          <Property Type="Int32" Name="SoNguoiPhuThuoc" Nullable="true" />
-          <Property Type="Boolean" Name="TrangThai" Nullable="true" />
-          <Property Type="Int32" Name="Mvt" Nullable="true" />
-          <Property Type="String" Name="Ka" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="ToLamViec" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="NgayNghi" Nullable="true" Precision="23" />
-          <Property Type="String" Name="NguoiGioiThieu" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="SoCMND" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="NgayCap" Nullable="true" Precision="23" />
-          <Property Type="String" Name="NoiCap" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="NguyenQuan" Nullable="true" MaxLength="100" />
-        </ComplexType>
-        <EntityType Name="DiaChiLienLac">
-          <Key>
-            <PropertyRef Name="IdLienLac" />
-            <PropertyRef Name="IdTinh_TP" />
-            <PropertyRef Name="IdNhanVien" />
-          </Key>
-          <Property Name="IdLienLac" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SoNhaDuong" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="Thoigian" Type="DateTime" Precision="3" />
-          <Property Name="TrangThai" Type="Boolean" />
-          <Property Name="IdTinh_TP" Type="Int32" Nullable="false" />
-          <Property Name="IdNhanVien" Type="Int32" Nullable="false" />
-          <Property Name="IdQuan_Huyen" Type="Int32" />
-          <NavigationProperty Name="NhanVien" Relationship="FaslinkModel.FK_DiaChiLienLac_NhanVien" FromRole="DiaChiLienLac" ToRole="NhanVien" />
-        </EntityType>
-        <Association Name="FK_DiaChiLienLac_NhanVien">
-          <End Type="FaslinkModel.NhanVien" Role="NhanVien" Multiplicity="1" />
-          <End Type="FaslinkModel.DiaChiLienLac" Role="DiaChiLienLac" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="IdNhanVien" />
-            </Principal>
-            <Dependent Role="DiaChiLienLac">
-              <PropertyRef Name="IdNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <ComplexType Name="ThemDiaChiLienLac_Result">
-          <Property Type="String" Name="SoNhaDuong" Nullable="true" MaxLength="1000" />
-          <Property Type="DateTime" Name="Thoigian" Nullable="true" />
-          <Property Type="Boolean" Name="TrangThai" Nullable="true" />
-          <Property Type="Int32" Name="IdTinh_TP" Nullable="true" />
-          <Property Type="Int32" Name="NhanVien" Nullable="true" />
-          <Property Type="Int32" Name="IdQuan_Huyen" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="ChiTietNhanVienTheoId_Result">
           <Property Type="Int32" Name="IdNhanVien" Nullable="false" />
           <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
@@ -1877,10 +1810,76 @@
           <Property Type="Int32" Name="Tinh_TPThuongTru" Nullable="false" />
           <Property Type="Int32" Name="Quan_HuyenThuongTru" Nullable="true" />
           <Property Type="String" Name="SoNhaDuongLienLac" Nullable="false" MaxLength="1000" />
-          <Property Type="DateTime" Name="Thoigian" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Thoigian" Nullable="true" />
           <Property Type="Boolean" Name="TrangThai" Nullable="true" />
           <Property Type="Int32" Name="Tinh_TPLienLac" Nullable="false" />
           <Property Type="Int32" Name="Quan_HuyenLienLac" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="DanhSachNhanVien_Result">
+          <Property Type="String" Name="Hinh" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="IdNhanVien" Nullable="false" />
+          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="NgayVao" Nullable="true" />
+          <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+          <Property Type="Int32" Name="IdBoPhan" Nullable="true" />
+          <Property Type="DateTime" Name="NgayThayDoi" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ThemDiaChiLienLac_Result">
+          <Property Type="String" Name="SoNhaDuong" Nullable="true" MaxLength="1000" />
+          <Property Type="DateTime" Name="Thoigian" Nullable="true" />
+          <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+          <Property Type="Int32" Name="IdTinh_TP" Nullable="true" />
+          <Property Type="Int32" Name="NhanVien" Nullable="true" />
+          <Property Type="Int32" Name="IdQuan_Huyen" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ThemDiaChiThuongTru_Result">
+          <Property Type="Int32" Name="IdTinh" Nullable="true" />
+          <Property Type="String" Name="SoNhaDuong" Nullable="true" MaxLength="1000" />
+          <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+          <Property Type="Int32" Name="IdNhanVien" Nullable="true" />
+          <Property Type="Int32" Name="IdQuan_Huyen" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ThemLogBoPhan_Result">
+          <Property Type="DateTime" Name="NgayThayDoi" Nullable="true" />
+          <Property Type="Int32" Name="IdNhanVien" Nullable="true" />
+          <Property Type="Int32" Name="IdBoPhan" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ThemNhanVien_Result">
+          <Property Type="Int32" Name="IdNhanVien" Nullable="true" />
+          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="GioiTinh" Nullable="true" />
+          <Property Type="DateTime" Name="NgayVao" Nullable="true" />
+          <Property Type="DateTime" Name="NgaySinh" Nullable="true" />
+          <Property Type="String" Name="NoiSinh" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="HonNhan" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DienThoai" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="DienThoaiNguoiThan" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="EmailCTy" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="EmailCaNhan" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="QuocTich" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TonGiao" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DanToc" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Hinh" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="SoNguoiPhuThuoc" Nullable="true" />
+          <Property Type="Boolean" Name="TrangThai" Nullable="true" />
+          <Property Type="Int32" Name="Mvt" Nullable="true" />
+          <Property Type="String" Name="Ka" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ToLamViec" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="NgayNghi" Nullable="true" />
+          <Property Type="String" Name="NguoiGioiThieu" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SoCMND" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="NgayCap" Nullable="true" />
+          <Property Type="String" Name="NoiCap" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="NguyenQuan" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="ThemTrinhDo_Result">
+          <Property Type="String" Name="HocVan" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TruongHoc" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="ChuyenMon" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="NgoaiNgu" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="ViTinh" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="ThoiGian" Nullable="true" />
+          <Property Type="Int32" Name="IdNhanVien" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1953,6 +1952,19 @@
             <EntityTypeMapping TypeName="FaslinkModel.ChuyenCongTac">
               <MappingFragment StoreEntitySet="ChuyenCongTac">
                 <ScalarProperty Name="IdChuyenCongTac" ColumnName="IdChuyenCongTac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiaChiLienLac">
+            <EntityTypeMapping TypeName="FaslinkModel.DiaChiLienLac">
+              <MappingFragment StoreEntitySet="DiaChiLienLac">
+                <ScalarProperty Name="IdLienLac" ColumnName="IdLienLac" />
+                <ScalarProperty Name="SoNhaDuong" ColumnName="SoNhaDuong" />
+                <ScalarProperty Name="Thoigian" ColumnName="Thoigian" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="IdTinh_TP" ColumnName="IdTinh_TP" />
+                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
+                <ScalarProperty Name="IdQuan_Huyen" ColumnName="IdQuan_Huyen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2130,6 +2142,38 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="NhanVien">
+            <EntityTypeMapping TypeName="FaslinkModel.NhanVien">
+              <MappingFragment StoreEntitySet="NhanVien">
+                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="IdGioiTinh" ColumnName="IdGioiTinh" />
+                <ScalarProperty Name="NgayVao" ColumnName="NgayVao" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+                <ScalarProperty Name="HonNhan" ColumnName="HonNhan" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="DienThoaiNguoiThan" ColumnName="DienThoaiNguoiThan" />
+                <ScalarProperty Name="EmailCTy" ColumnName="EmailCTy" />
+                <ScalarProperty Name="EmailCaNhan" ColumnName="EmailCaNhan" />
+                <ScalarProperty Name="QuocTich" ColumnName="QuocTich" />
+                <ScalarProperty Name="TonGiao" ColumnName="TonGiao" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+                <ScalarProperty Name="Hinh" ColumnName="Hinh" />
+                <ScalarProperty Name="SoNguoiPhuThuoc" ColumnName="SoNguoiPhuThuoc" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="Mvt" ColumnName="Mvt" />
+                <ScalarProperty Name="Ka" ColumnName="Ka" />
+                <ScalarProperty Name="ToLamViec" ColumnName="ToLamViec" />
+                <ScalarProperty Name="NgayNghi" ColumnName="NgayNghi" />
+                <ScalarProperty Name="NguoiGioiThieu" ColumnName="NguoiGioiThieu" />
+                <ScalarProperty Name="SoCMND" ColumnName="SoCMND" />
+                <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
+                <ScalarProperty Name="NoiCap" ColumnName="NoiCap" />
+                <ScalarProperty Name="NguyenQuan" ColumnName="NguyenQuan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="NhanVienChucVu">
             <EntityTypeMapping TypeName="FaslinkModel.NhanVienChucVu">
               <MappingFragment StoreEntitySet="NhanVienChucVu">
@@ -2217,148 +2261,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="DanhSachNhanVien" FunctionName="FaslinkModel.Store.DanhSachNhanVien">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="FaslinkModel.DanhSachNhanVien_Result">
-                <ScalarProperty Name="Hinh" ColumnName="Hinh" />
-                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
-                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
-                <ScalarProperty Name="NgayVao" ColumnName="NgayVao" />
-                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-                <ScalarProperty Name="IdBoPhan" ColumnName="IdBoPhan" />
-                <ScalarProperty Name="NgayThayDoi" ColumnName="NgayThayDoi" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SuaNhanVien" FunctionName="FaslinkModel.Store.SuaNhanVien" />
-          <FunctionImportMapping FunctionImportName="ThemBoPhan" FunctionName="FaslinkModel.Store.ThemBoPhan" />
-          <FunctionImportMapping FunctionImportName="ThemDiaChiThuongTru" FunctionName="FaslinkModel.Store.ThemDiaChiThuongTru">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="FaslinkModel.ThemDiaChiThuongTru_Result">
-                <ScalarProperty Name="IdTinh" ColumnName="IdTinh" />
-                <ScalarProperty Name="SoNhaDuong" ColumnName="SoNhaDuong" />
-                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
-                <ScalarProperty Name="IdQuan_Huyen" ColumnName="IdQuan_Huyen" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="ThemLogBoPhan" FunctionName="FaslinkModel.Store.ThemLogBoPhan">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="FaslinkModel.ThemLogBoPhan_Result">
-                <ScalarProperty Name="NgayThayDoi" ColumnName="NgayThayDoi" />
-                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
-                <ScalarProperty Name="IdBoPhan" ColumnName="IdBoPhan" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="ThemTrinhDo" FunctionName="FaslinkModel.Store.ThemTrinhDo">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="FaslinkModel.ThemTrinhDo_Result">
-                <ScalarProperty Name="HocVan" ColumnName="HocVan" />
-                <ScalarProperty Name="TruongHoc" ColumnName="TruongHoc" />
-                <ScalarProperty Name="ChuyenMon" ColumnName="ChuyenMon" />
-                <ScalarProperty Name="NgoaiNgu" ColumnName="NgoaiNgu" />
-                <ScalarProperty Name="ViTinh" ColumnName="ViTinh" />
-                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
-                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="XoaNhanVien" FunctionName="FaslinkModel.Store.XoaNhanVien" />
-          <EntitySetMapping Name="NhanVien">
-            <EntityTypeMapping TypeName="FaslinkModel.NhanVien">
-              <MappingFragment StoreEntitySet="NhanVien">
-                <ScalarProperty Name="NguyenQuan" ColumnName="NguyenQuan" />
-                <ScalarProperty Name="NoiCap" ColumnName="NoiCap" />
-                <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
-                <ScalarProperty Name="SoCMND" ColumnName="SoCMND" />
-                <ScalarProperty Name="NguoiGioiThieu" ColumnName="NguoiGioiThieu" />
-                <ScalarProperty Name="NgayNghi" ColumnName="NgayNghi" />
-                <ScalarProperty Name="ToLamViec" ColumnName="ToLamViec" />
-                <ScalarProperty Name="Ka" ColumnName="Ka" />
-                <ScalarProperty Name="Mvt" ColumnName="Mvt" />
-                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-                <ScalarProperty Name="SoNguoiPhuThuoc" ColumnName="SoNguoiPhuThuoc" />
-                <ScalarProperty Name="Hinh" ColumnName="Hinh" />
-                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
-                <ScalarProperty Name="TonGiao" ColumnName="TonGiao" />
-                <ScalarProperty Name="QuocTich" ColumnName="QuocTich" />
-                <ScalarProperty Name="EmailCaNhan" ColumnName="EmailCaNhan" />
-                <ScalarProperty Name="EmailCTy" ColumnName="EmailCTy" />
-                <ScalarProperty Name="DienThoaiNguoiThan" ColumnName="DienThoaiNguoiThan" />
-                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
-                <ScalarProperty Name="HonNhan" ColumnName="HonNhan" />
-                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
-                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
-                <ScalarProperty Name="NgayVao" ColumnName="NgayVao" />
-                <ScalarProperty Name="IdGioiTinh" ColumnName="IdGioiTinh" />
-                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
-                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="ThemNhanVien" FunctionName="FaslinkModel.Store.ThemNhanVien">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="FaslinkModel.ThemNhanVien_Result">
-                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
-                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
-                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
-                <ScalarProperty Name="NgayVao" ColumnName="NgayVao" />
-                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
-                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
-                <ScalarProperty Name="HonNhan" ColumnName="HonNhan" />
-                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
-                <ScalarProperty Name="DienThoaiNguoiThan" ColumnName="DienThoaiNguoiThan" />
-                <ScalarProperty Name="EmailCTy" ColumnName="EmailCTy" />
-                <ScalarProperty Name="EmailCaNhan" ColumnName="EmailCaNhan" />
-                <ScalarProperty Name="QuocTich" ColumnName="QuocTich" />
-                <ScalarProperty Name="TonGiao" ColumnName="TonGiao" />
-                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
-                <ScalarProperty Name="Hinh" ColumnName="Hinh" />
-                <ScalarProperty Name="SoNguoiPhuThuoc" ColumnName="SoNguoiPhuThuoc" />
-                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-                <ScalarProperty Name="Mvt" ColumnName="Mvt" />
-                <ScalarProperty Name="Ka" ColumnName="Ka" />
-                <ScalarProperty Name="ToLamViec" ColumnName="ToLamViec" />
-                <ScalarProperty Name="NgayNghi" ColumnName="NgayNghi" />
-                <ScalarProperty Name="NguoiGioiThieu" ColumnName="NguoiGioiThieu" />
-                <ScalarProperty Name="SoCMND" ColumnName="SoCMND" />
-                <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
-                <ScalarProperty Name="NoiCap" ColumnName="NoiCap" />
-                <ScalarProperty Name="NguyenQuan" ColumnName="NguyenQuan" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <EntitySetMapping Name="DiaChiLienLac">
-            <EntityTypeMapping TypeName="FaslinkModel.DiaChiLienLac">
-              <MappingFragment StoreEntitySet="DiaChiLienLac">
-                <ScalarProperty Name="IdQuan_Huyen" ColumnName="IdQuan_Huyen" />
-                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
-                <ScalarProperty Name="IdTinh_TP" ColumnName="IdTinh_TP" />
-                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-                <ScalarProperty Name="Thoigian" ColumnName="Thoigian" />
-                <ScalarProperty Name="SoNhaDuong" ColumnName="SoNhaDuong" />
-                <ScalarProperty Name="IdLienLac" ColumnName="IdLienLac" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="ThemDiaChiLienLac" FunctionName="FaslinkModel.Store.ThemDiaChiLienLac">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="FaslinkModel.ThemDiaChiLienLac_Result">
-                <ScalarProperty Name="SoNhaDuong" ColumnName="SoNhaDuong" />
-                <ScalarProperty Name="Thoigian" ColumnName="Thoigian" />
-                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-                <ScalarProperty Name="IdTinh_TP" ColumnName="IdTinh_TP" />
-                <ScalarProperty Name="NhanVien" ColumnName="NhanVien" />
-                <ScalarProperty Name="IdQuan_Huyen" ColumnName="IdQuan_Huyen" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="XoaDiaChiLienLac" FunctionName="FaslinkModel.Store.XoaDiaChiLienLac" />
-          <FunctionImportMapping FunctionImportName="XoaDiaChiThuongTru" FunctionName="FaslinkModel.Store.XoaDiaChiThuongTru" />
-          <FunctionImportMapping FunctionImportName="XoaLogBoPhan" FunctionName="FaslinkModel.Store.XoaLogBoPhan" />
-          <FunctionImportMapping FunctionImportName="XoaTrinhDo" FunctionName="FaslinkModel.Store.XoaTrinhDo" />
           <FunctionImportMapping FunctionImportName="ChiTietNhanVienTheoId" FunctionName="FaslinkModel.Store.ChiTietNhanVienTheoId">
             <ResultMapping>
               <ComplexTypeMapping TypeName="FaslinkModel.ChiTietNhanVienTheoId_Result">
@@ -2408,6 +2310,103 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DanhSachNhanVien" FunctionName="FaslinkModel.Store.DanhSachNhanVien">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FaslinkModel.DanhSachNhanVien_Result">
+                <ScalarProperty Name="Hinh" ColumnName="Hinh" />
+                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="NgayVao" ColumnName="NgayVao" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="IdBoPhan" ColumnName="IdBoPhan" />
+                <ScalarProperty Name="NgayThayDoi" ColumnName="NgayThayDoi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SuaNhanVien" FunctionName="FaslinkModel.Store.SuaNhanVien" />
+          <FunctionImportMapping FunctionImportName="ThemBoPhan" FunctionName="FaslinkModel.Store.ThemBoPhan" />
+          <FunctionImportMapping FunctionImportName="ThemDiaChiLienLac" FunctionName="FaslinkModel.Store.ThemDiaChiLienLac">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FaslinkModel.ThemDiaChiLienLac_Result">
+                <ScalarProperty Name="SoNhaDuong" ColumnName="SoNhaDuong" />
+                <ScalarProperty Name="Thoigian" ColumnName="Thoigian" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="IdTinh_TP" ColumnName="IdTinh_TP" />
+                <ScalarProperty Name="NhanVien" ColumnName="NhanVien" />
+                <ScalarProperty Name="IdQuan_Huyen" ColumnName="IdQuan_Huyen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ThemDiaChiThuongTru" FunctionName="FaslinkModel.Store.ThemDiaChiThuongTru">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FaslinkModel.ThemDiaChiThuongTru_Result">
+                <ScalarProperty Name="IdTinh" ColumnName="IdTinh" />
+                <ScalarProperty Name="SoNhaDuong" ColumnName="SoNhaDuong" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
+                <ScalarProperty Name="IdQuan_Huyen" ColumnName="IdQuan_Huyen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ThemLogBoPhan" FunctionName="FaslinkModel.Store.ThemLogBoPhan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FaslinkModel.ThemLogBoPhan_Result">
+                <ScalarProperty Name="NgayThayDoi" ColumnName="NgayThayDoi" />
+                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
+                <ScalarProperty Name="IdBoPhan" ColumnName="IdBoPhan" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ThemNhanVien" FunctionName="FaslinkModel.Store.ThemNhanVien">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FaslinkModel.ThemNhanVien_Result">
+                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="NgayVao" ColumnName="NgayVao" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+                <ScalarProperty Name="HonNhan" ColumnName="HonNhan" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="DienThoaiNguoiThan" ColumnName="DienThoaiNguoiThan" />
+                <ScalarProperty Name="EmailCTy" ColumnName="EmailCTy" />
+                <ScalarProperty Name="EmailCaNhan" ColumnName="EmailCaNhan" />
+                <ScalarProperty Name="QuocTich" ColumnName="QuocTich" />
+                <ScalarProperty Name="TonGiao" ColumnName="TonGiao" />
+                <ScalarProperty Name="DanToc" ColumnName="DanToc" />
+                <ScalarProperty Name="Hinh" ColumnName="Hinh" />
+                <ScalarProperty Name="SoNguoiPhuThuoc" ColumnName="SoNguoiPhuThuoc" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="Mvt" ColumnName="Mvt" />
+                <ScalarProperty Name="Ka" ColumnName="Ka" />
+                <ScalarProperty Name="ToLamViec" ColumnName="ToLamViec" />
+                <ScalarProperty Name="NgayNghi" ColumnName="NgayNghi" />
+                <ScalarProperty Name="NguoiGioiThieu" ColumnName="NguoiGioiThieu" />
+                <ScalarProperty Name="SoCMND" ColumnName="SoCMND" />
+                <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
+                <ScalarProperty Name="NoiCap" ColumnName="NoiCap" />
+                <ScalarProperty Name="NguyenQuan" ColumnName="NguyenQuan" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ThemTrinhDo" FunctionName="FaslinkModel.Store.ThemTrinhDo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FaslinkModel.ThemTrinhDo_Result">
+                <ScalarProperty Name="HocVan" ColumnName="HocVan" />
+                <ScalarProperty Name="TruongHoc" ColumnName="TruongHoc" />
+                <ScalarProperty Name="ChuyenMon" ColumnName="ChuyenMon" />
+                <ScalarProperty Name="NgoaiNgu" ColumnName="NgoaiNgu" />
+                <ScalarProperty Name="ViTinh" ColumnName="ViTinh" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="IdNhanVien" ColumnName="IdNhanVien" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="XoaDiaChiLienLac" FunctionName="FaslinkModel.Store.XoaDiaChiLienLac" />
+          <FunctionImportMapping FunctionImportName="XoaDiaChiThuongTru" FunctionName="FaslinkModel.Store.XoaDiaChiThuongTru" />
+          <FunctionImportMapping FunctionImportName="XoaLogBoPhan" FunctionName="FaslinkModel.Store.XoaLogBoPhan" />
+          <FunctionImportMapping FunctionImportName="XoaNhanVien" FunctionName="FaslinkModel.Store.XoaNhanVien" />
+          <FunctionImportMapping FunctionImportName="XoaTrinhDo" FunctionName="FaslinkModel.Store.XoaTrinhDo" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

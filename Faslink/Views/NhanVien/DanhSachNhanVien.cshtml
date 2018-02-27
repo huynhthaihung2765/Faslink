@@ -160,7 +160,7 @@
                     <!--end: Search Form -->
                     <!--begin: Datatable -->
                     <div class="m_datatable m-datatable m-datatable--default m-datatable--loaded" id="local_data" style="">
-                        <table class="m-datatable__table" style="display: block; min-height: 300px; overflow-x: auto;">
+                        <table class="m-datatable__table" style="display: block; min-height: 300px; overflow-x: auto;" border="0">
                             <thead class="m-datatable__head">
                                 <tr class="m-datatable__row">
                                     <th data-field="RecordID" class="m-datatable__cell--center m-datatable__cell m-datatable__cell--check">
@@ -183,7 +183,7 @@
                                         </span>
                                     </th>
                                     <th data-field="Currency" class="m-datatable__cell m-datatable__cell--sort">
-                                        <span style="width: 100px;">
+                                        <span style="width: 200px;">
                                             Họ Tên
                                         </span>
                                     </th>
@@ -208,12 +208,12 @@
                                     </th>
                                 </tr>
                             </thead>
-                           @foreach(var item in Model)
+                            @foreach (var item in Model)
                             {
                                 <tbody class="m-datatable__body" style="">
                                     <tr data-row="0" class="m-datatable__row">
                                         <td data-field="RecordID" class="m-datatable__cell--center m-datatable__cell m-datatable__cell--check">
-                                            <span style="width: 50px;">
+                                            <span style="width: 50px">
                                                 <label class="m-checkbox m-checkbox--single m-checkbox--solid m-checkbox--brand">
                                                     <input value="7" type="checkbox">
                                                     <span>
@@ -223,16 +223,16 @@
                                         </td>
                                         <td data-field="OrderID" class="m-datatable__cell">
                                             <span style="width: 110px;">
-                                                <img src="~/assets/img/nhanvien/@item.Hinh" width="41"/>
+                                                <img src="~/assets/img/nhanvien/@item.Hinh" width="41" />
                                             </span>
                                         </td>
                                         <td data-field="ShipName" class="m-datatable__cell">
-                                            <span style="width: 110px;text-align:center">
+                                            <span style="width: 110px;">
                                                 @item.IdNhanVien
                                             </span>
                                         </td>
                                         <td data-field="Currency" class="m-datatable__cell">
-                                            <span style="width: 140px;">
+                                            <span style="width: 200px;">
                                                 @item.HoTen
                                             </span>
                                         </td>
@@ -257,23 +257,41 @@
                                         </td>
                                         <td data-field="Latitude" class="m-datatable__cell">
                                             <span style="width: 110px;">
-                                                @item.IdBoPhan
+                                                @{int i = item.IdBoPhan;}
+                                                    @switch (i)
+                                                    {
+                                                        case 1:
+                                                            @Html.Raw("Giám đốc")
+                                                            break;
+                                                        case 2:
+                                                            @Html.Raw("Thư ký")
+                                                            break;
+                                                        case 3:
+                                                            @Html.Raw("Kế toán")
+                                                            break;
+                                                        case 4:
+                                                            @Html.Raw("Hành chính")
+                                                            break;
+                                                        default:
+                                                            @Html.Raw("")
+                                                            break;
+                                                    }
                                             </span>
                                         </td>
                                         <td data-field="Actions" class="m-datatable__cell">
-                                            <span style="overflow: visible; width: 110px;text-align:center">
+                                            <span style="overflow: visible; width: 110px; text-align:center">
                                                 <span class="dropdown ">
                                                     <a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">
                                                         <i class="la la-ellipsis-h"></i>
                                                     </a>
                                                     <span class="dropdown-menu dropdown-menu-right">
-                                                        <a class="btn btn-default" href="/NhanVien/SuaNhanVien">
+                                                        <span class="btn btn-default">
                                                             @Html.ActionLink("Sửa Nhân viên", "SuaNhanVien", new { id = item.IdNhanVien })
-                                                        </a>
-                                                        <br />
-                                                            <button onclick="xacnhanxoa()" class="btn btn-default" href="#">
-                                                                @Html.ActionLink("Xóa Nhân viên", "XoaNhanVien", new { id = item.IdNhanVien })
-                                                            </button>
+                                                        </span>
+                                                        <br>
+                                                        <span class="btn btn-default">
+                                                            @Html.ActionLink("Xóa Nhân viên", "XoaNhanVien", new { id = item.IdNhanVien })
+                                                        </span>
                                                     </span>
                                                 </span>
                                             </span>

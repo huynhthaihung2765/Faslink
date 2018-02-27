@@ -4,8 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @ViewBag.error
-@using (Html.BeginForm())
-{
+
     <div class="m-subheader ">
         <div class="d-flex align-items-center">
             <div class="mr-auto">
@@ -78,343 +77,404 @@
                             </div>
                         </div>
                     </div>
-                    <form class="m-form">
-                        <div class="m-portlet__body">
-                            <div class="m-form__section m-form__section--first">
-                                <div class="form-group m-form__group">
-                                    <label for="example_input_full_name">
-                                        Mã nhân viên
-                                    </label>
-                                    @Html.TextBoxFor(model => model.IdNhanVien, new { @class = "form-control m-input", @readonly = "readonly", @style = "width:110px" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Họ và Tên
-                                    </label>
-                                    @Html.TextBoxFor(model => model.HoTen, new { @class = "form-control m-input", @name="hoTen" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label>Giới tính</label>
-                                            @ViewBag.gioitinh
-                                            @ViewBag.error
-                                            @Html.TextBoxFor(model => model.IdGioiTinh, new { @class = "form-control m-input" })
-                                            @Html.DropDownList("idTinh_TP", new SelectList(new string[] { }), new { @id = "ddlGioiTinh",@class = "form-control" })
-                                        </div>
+@using (Html.BeginForm())
+{
+                    <div class="m-portlet__body">
+                        <div class="m-form__section m-form__section--first">
+                            <div class="form-group m-form__group">
+                                <label for="example_input_full_name">
+                                    Mã nhân viên
+                                </label>
+                                @Html.TextBoxFor(model => model.IdNhanVien, new { @class = "form-control m-input", @readonly = "readonly", @style = "width:110px" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Họ và Tên
+                                </label>
+                                @Html.TextBoxFor(model => model.HoTen, new { @class = "form-control m-input", @name = "hoTen" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Giới tính</label>
+                                        @if (Model.IdGioiTinh == 1)
+                                        {
+                                            <div class="col-lg-4 col-md-9 col-sm-12">
+                                                <label class="m-radio">
+                                                    <input type="radio" name="idGioiTinh" checked value="1" />
+                                                    @Html.Raw("Nam")
+                                                    <span></span>
+                                                </label>
+                                                <label class="m-radio">
+                                                    <input type="radio" name="idGioiTinh" value="2" />
+                                                    @Html.Raw("Nữ")
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="m-radio-list" id="toastTypeGroup">
+                                                <label class="m-radio">
+                                                    <input type="radio" name="idGioiTinh" value="1" />
+                                                    @Html.Raw("Nam")
+                                                    <span></span>
+                                                </label>
+                                                <label class="m-radio">
+                                                    <input type="radio" name="idGioiTinh" checked value="2" />
+                                                    @Html.Raw("Nữ")
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
-                                <div class="form-group m-form__group">
+                            </div>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label>
+                                Nơi sinh
+                            </label>
+                            @Html.TextBoxFor(model => model.NoiSinh, new { @class = "form-control m-input" })
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label>
+                                Ngày vào
+                            </label>
+                            @Html.TextBoxFor(model => model.NgayVao, "{0:dd/MM/yyyy}", new { @class = "form-control m-input", @style = "width:135px", @readonly = "readonly" })
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label>
+                                Ngày sinh
+                            </label>
+                            @Html.TextBoxFor(model => model.NgaySinh, "{0:dd/MM/yyyy}", new { @class = "form-control m-input", @readonly = "readonly", @id = "m_datepicker_1", @style = "width:135px" })
+                        </div>
+                        <div class="form-group m-form__group">
+                            <div class="row">
+                                <div class="col-md-3">
                                     <label>
-                                        Nơi sinh
+                                        Hôn nhân
                                     </label>
-                                    @Html.TextBoxFor(model => model.NoiSinh, new { @class = "form-control m-input" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Ngày vào
-                                    </label>
-                                    @Html.TextBoxFor(model => model.NgayVao, "{0:dd/MM/yyyy}", new { @class = "form-control m-input", @style = "width:135px", @readonly = "readonly" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Ngày sinh
-                                    </label>
-                                    @Html.TextBoxFor(model => model.NgaySinh, "{0:dd/MM/yyyy}", new { @class = "form-control m-input", @readonly = "readonly", @id = "m_datepicker_1", @style = "width:135px" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label>
-                                                Hôn nhân
-                                            </label>
-                                            @Html.TextBoxFor(model => model.HonNhan, new { @class = "form-control m-input", @readonly = "readonly" })
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Ðiện thoại
-                                    </label>
-                                    @Html.TextBoxFor(model => model.DienThoai, new { @class = "form-control m-input", @onkeypress = "return phonenumber(event)", @style = "width:150px" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Ðiện thoại nguời thân
-                                    </label>
-                                    @Html.TextBoxFor(model => model.DienThoaiNguoiThan, new { @class = "form-control m-input", @onkeypress = "return phonenumber(event)", @style = "width:150px" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Email công ty
-                                    </label>
-                                    @Html.TextBoxFor(model => model.EmailCTy, new { @class = "form-control m-input chieucao" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Email cá nhân
-                                    </label>
-                                    @Html.TextBoxFor(model => model.EmailCaNhan, new { @class = "form-control m-input chieucao" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Hình ảnh
-                                    </label>
-                                    <div><img src="~/assets/img/nhanvien/hung.jpg" width="41"/></div>
-                                    <div class="custom-file">
-                                        <input class="custom-file-input" id="customFile" type="file">
-                                        <label class="custom-file-label" for="customFile">
-                                            Chọn file
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Số nguời phụ thuộc
-                                    </label>
-                                    @Html.TextBoxFor(model => model.SoNguoiPhuThuoc, new { @class = "form-control m-input chieucao", @style = "width:123px", @onkeypress = "return isNumberKey(event)" })
+                                    @Html.TextBoxFor(model => model.HonNhan, new { @class = "form-control m-input", @readonly = "readonly" })
                                 </div>
                             </div>
                         </div>
-                        <div class="m-portlet__head">
-                            <div class="m-portlet__head-caption">
-                                <div class="m-portlet__head-title">
-                                    <span class="m-portlet__head-icon m--hide">
-                                        <i class="la la-gear"></i>
-                                    </span>
-                                    <h3 class="m-portlet__head-text">
-                                        Chứng minh Nhân dân
-                                    </h3>
-                                </div>
+                        <div class="form-group m-form__group">
+                            <label>
+                                Ðiện thoại
+                            </label>
+                            @Html.TextBoxFor(model => model.DienThoai, new { @class = "form-control m-input", @onkeypress = "return phonenumber(event)", @style = "width:150px" })
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label>
+                                Ðiện thoại nguời thân
+                            </label>
+                            @Html.TextBoxFor(model => model.DienThoaiNguoiThan, new { @class = "form-control m-input", @onkeypress = "return phonenumber(event)", @style = "width:150px" })
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label>
+                                Email công ty
+                            </label>
+                            @Html.TextBoxFor(model => model.EmailCTy, new { @class = "form-control m-input chieucao" })
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label>
+                                Email cá nhân
+                            </label>
+                            @Html.TextBoxFor(model => model.EmailCaNhan, new { @class = "form-control m-input chieucao" })
+                        </div>
+                        <div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Hình ảnh
+                                </label>
+                                @*<div><img src="~/assets/img/nhanvien/hung.jpg" width="41"/></div>*@
+                                @Html.TextBoxFor(model => model.hinh, new { @class = "form-control m-input chieucao" })
+                            </div>
+                            <div class="custom-file">
+                                <input class="custom-file-input" id="customFile" type="file">
+                                <label class="custom-file-label" for="customFile">
+                                    Chọn file
+                                </label>
                             </div>
                         </div>
-                        <div class="m-portlet__body">
-                            <div class="m-form__section m-form__section--first">
-                                <div class="form-group m-form__group">
-                                    <label for="example_input_full_name">
-                                        Số chứng Minh nhân Dân
-                                    </label>
-                                    @Html.TextBoxFor(model => model.SoCMND, new { @class = "form-control m-input chieucao", @style = "width:123px", @onkeypress = "return isNumberKey(event)" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Nơi cấp
-                                    </label>
-                                    <textarea class="form-control m-input m-input--solid" id="exampleTextarea" rows="1" placeholder="nhập nơi cấp"></textarea>
-                                    @Html.TextAreaFor(model => model.NoiCap, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Ngày cấp
-                                    </label>
-                                    @Html.TextBoxFor(model => model.NgayCap, "{0:dd/MM/yyyy}", new { @class = "form-control m-input", @id = "m_datepicker_1", @style = "width:135px" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Nguyên quán
-                                    </label>
-                                    @Html.TextAreaFor(model => model.NguyenQuan, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
-                                </div>
-                            </div>
+                        <div class="form-group m-form__group">
+                            <label>
+                                Số nguời phụ thuộc
+                            </label>
+                            @Html.TextBoxFor(model => model.SoNguoiPhuThuoc, new { @class = "form-control m-input chieucao", @style = "width:123px", @onkeypress = "return isNumberKey(event)" })
                         </div>
-                        <div class="m-portlet__head">
-                            <div class="m-portlet__head-caption">
-                                <div class="m-portlet__head-title">
-                                    <span class="m-portlet__head-icon m--hide">
-                                        <i class="la la-gear"></i>
-                                    </span>
-                                    <h3 class="m-portlet__head-text">
-                                        Công việc
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-portlet__body">
-                            <div class="m-form__section m-form__section--first">
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Mã vân tay
-                                    </label>
-                                    @Html.TextBoxFor(model => model.Mvt, new { @class = "form-control m-input chieucao", @style = "width:123px", @onkeypress = "return isNumberKey(event)" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label>
-                                                Bộ phận
-                                            </label>
-                                            @Html.TextBoxFor(model => model.IdBoPhan, new { @class = "form-control m-input chieucao", @style = "width:123px"})
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Ka
-                                    </label>
-                                    @Html.TextBoxFor(model => model.Ka, new { @class = "form-control m-input chieucao" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Tổ làm việc
-                                    </label>
-                                    @Html.TextBoxFor(model => model.ToLamViec, new { @class = "form-control m-input chieucao" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Nguời giới thiệu
-                                    </label>
-                                    @Html.TextBoxFor(model => model.NguoiGioiThieu, new { @class = "form-control m-input chieucao" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Trạng thái
-                                    </label>
-                                   @Html.TextBoxFor(model => model.TrangThai, new { @class = "form-control m-input chieucao" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Ngày nghỉ
-                                    </label>
-                                    @Html.TextBoxFor(m => m.NgayNghi, "{0:dd/MM/yyyy}", new { @class = "form-control ", @id = "m_datepicker_1", @style = "width:135px" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-portlet__head">
-                            <div class="m-portlet__head-caption">
-                                <div class="m-portlet__head-title">
-                                    <span class="m-portlet__head-icon m--hide">
-                                        <i class="la la-gear"></i>
-                                    </span>
-                                    <h3 class="m-portlet__head-text">
-                                        Trình độ
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-portlet__body">
-                            <div class="m-form__section m-form__section--first">
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Học vấn
-                                    </label>
-                                    @Html.TextAreaFor(model => model.HocVan, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Truờng học
-                                    </label>
-                                    @Html.TextAreaFor(model => model.TruongHoc, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Chuyên môn
-                                    </label>
-                                    @Html.TextAreaFor(model => model.ChuyenMon, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Ngoại ngữ
-                                    </label>
-                                    @Html.TextAreaFor(model => model.NgoaiNgu, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Vi tính
-                                    </label>
-                                    @Html.TextAreaFor(model => model.ViTinh, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-portlet__head">
-                            <div class="m-portlet__head-caption">
-                                <div class="m-portlet__head-title">
-                                    <span class="m-portlet__head-icon m--hide">
-                                        <i class="la la-gear"></i>
-                                    </span>
-                                    <h3 class="m-portlet__head-text">
-                                        Ðịa chỉ thuờng trú
-                                    </h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-portlet__body">
-                            <div class="m-form__section m-form__section--first">
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Số nhà,tên đuờng
-                                    </label>
-                                    @Html.TextAreaFor(model => model.SoNhaDuongThuongTru, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label>
-                                                Tỉnh/Thành phố
-                                            </label>
-                                            @Html.TextBoxFor(model => model.Tinh_TPThuongTru, new { @class = "form-control m-input"})
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label>
-                                                Quận/Huyện
-                                            </label>
-                                            @Html.TextBoxFor(model => model.Quan_HuyenThuongTru, new { @class = "form-control m-input" })
-                                        </div>
-                                    </div>
-                                </div>
+                    </div>
 
+                    <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <span class="m-portlet__head-icon m--hide">
+                                    <i class="la la-gear"></i>
+                                </span>
+                                <h3 class="m-portlet__head-text">
+                                    Chứng minh Nhân dân
+                                </h3>
                             </div>
                         </div>
-                        <div class="m-portlet__head">
-                            <div class="m-portlet__head-caption">
-                                <div class="m-portlet__head-title">
-                                    <span class="m-portlet__head-icon m--hide">
-                                        <i class="la la-gear"></i>
-                                    </span>
-                                    <h3 class="m-portlet__head-text">
-                                        Ðịa chỉ liên lạc
-                                    </h3>
-                                </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div class="m-form__section m-form__section--first">
+                            <div class="form-group m-form__group">
+                                <label for="example_input_full_name">
+                                    Số chứng Minh nhân Dân
+                                </label>
+                                @Html.TextBoxFor(model => model.SoCMND, new { @class = "form-control m-input chieucao", @style = "width:123px", @onkeypress = "return isNumberKey(event)" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Nơi cấp
+                                </label>
+                                @Html.TextAreaFor(model => model.NoiCap, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Ngày cấp
+                                </label>
+                                @Html.TextBoxFor(model => model.NgayCap, "{0:dd/MM/yyyy}", new { @class = "form-control m-input", @id = "m_datepicker_1", @style = "width:135px" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Nguyên quán
+                                </label>
+                                @Html.TextAreaFor(model => model.NguyenQuan, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
                             </div>
                         </div>
-                        <div class="m-portlet__body">
-                            <div class="m-form__section m-form__section--first">
-                                <div class="form-group m-form__group">
-                                    <label>
-                                        Số nhà,tên đuờng
-                                    </label>
-                                    @Html.TextAreaFor(model => model.SoNhaDuongLienLac, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
+                    </div>
+                    <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <span class="m-portlet__head-icon m--hide">
+                                    <i class="la la-gear"></i>
+                                </span>
+                                <h3 class="m-portlet__head-text">
+                                    Công việc
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div class="m-form__section m-form__section--first">
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Mã vân tay
+                                </label>
+                                @Html.TextBoxFor(model => model.Mvt, new { @class = "form-control m-input chieucao", @style = "width:123px", @onkeypress = "return isNumberKey(event)" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>
+                                            Bộ phận
+                                        </label>
+                                        @Html.TextBoxFor(model => model.IdBoPhan, new { @class = "form-control m-input chieucao", @style = "width:123px" })
+                                    </div>
                                 </div>
-                                <div class="form-group m-form__group">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label>
-                                                Tỉnh/Thành phố
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Ka
+                                </label>
+                                @Html.TextBoxFor(model => model.Ka, new { @class = "form-control m-input chieucao" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Tổ làm việc
+                                </label>
+                                @Html.TextBoxFor(model => model.ToLamViec, new { @class = "form-control m-input chieucao" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Nguời giới thiệu
+                                </label>
+                                @Html.TextBoxFor(model => model.NguoiGioiThieu, new { @class = "form-control m-input chieucao" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Trạng thái
+                                </label>
+                                @*@Html.EditorFor(model => model.TrangThaiNhanVien, new { @class = "form-control m-input--fixed", @id = "m_notify_placement_from" })*@
+                                <div class="col-lg-4 col-md-9 col-sm-12">
+                                    @if (Model.TrangThaiNhanVien == true)
+                                    {
+                                        <div class="m-radio-list" id="toastTypeGroup">
+                                            <label class="m-radio">
+                                                <input type="radio" name="trangThai" checked value="True" />
+                                                @Html.Raw("Đang làm")
+                                                <span></span>
                                             </label>
-                                            @Html.TextBoxFor(model => model.Tinh_TPLienLac, new { @class = "form-control m-input" })
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label>
-                                                Quận/Huyện
+                                            <label class="m-radio">
+                                                <input type="radio" name="trangThai" value="false" />
+                                                @Html.Raw("Đang nghỉ")
+                                                <span></span>
                                             </label>
-                                            @Html.TextBoxFor(model => model.Quan_HuyenLienLac, new { @class = "form-control m-input" })
                                         </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="m-radio-list" id="toastTypeGroup">
+                                            <label class="m-radio">
+                                                <input type="radio" name="trangThai" value="True" />
+                                                @Html.Raw("Đang làm")
+                                                <span></span>
+                                            </label>
+                                            <label class="m-radio">
+                                                <input type="radio" name="trangThai" checked value="false" />
+                                                @Html.Raw("Đang nghỉ")
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Ngày nghỉ
+                                </label>
+                                @Html.TextBoxFor(m => m.NgayNghi, "{0:dd/MM/yyyy}", new { @class = "form-control ", @id = "m_datepicker_1", @style = "width:135px" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <span class="m-portlet__head-icon m--hide">
+                                    <i class="la la-gear"></i>
+                                </span>
+                                <h3 class="m-portlet__head-text">
+                                    Trình độ
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div class="m-form__section m-form__section--first">
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Học vấn
+                                </label>
+                                @Html.TextAreaFor(model => model.HocVan, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Truờng học
+                                </label>
+                                @Html.TextAreaFor(model => model.TruongHoc, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Chuyên môn
+                                </label>
+                                @Html.TextAreaFor(model => model.ChuyenMon, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Ngoại ngữ
+                                </label>
+                                @Html.TextAreaFor(model => model.NgoaiNgu, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Vi tính
+                                </label>
+                                @Html.TextAreaFor(model => model.ViTinh, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <span class="m-portlet__head-icon m--hide">
+                                    <i class="la la-gear"></i>
+                                </span>
+                                <h3 class="m-portlet__head-text">
+                                    Ðịa chỉ thuờng trú
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div class="m-form__section m-form__section--first">
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Số nhà,tên đuờng
+                                </label>
+                                @Html.TextAreaFor(model => model.SoNhaDuongThuongTru, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>
+                                            Tỉnh/Thành phố
+                                        </label>
+                                        @Html.TextBoxFor(model => model.Tinh_TPThuongTru, new { @class = "form-control m-input" })
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            Quận/Huyện
+                                        </label>
+                                        @Html.TextBoxFor(model => model.Quan_HuyenThuongTru, new { @class = "form-control m-input" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="m-portlet__head">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <span class="m-portlet__head-icon m--hide">
+                                    <i class="la la-gear"></i>
+                                </span>
+                                <h3 class="m-portlet__head-text">
+                                    Ðịa chỉ liên lạc
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-portlet__body">
+                        <div class="m-form__section m-form__section--first">
+                            <div class="form-group m-form__group">
+                                <label>
+                                    Số nhà,tên đuờng
+                                </label>
+                                @Html.TextAreaFor(model => model.SoNhaDuongLienLac, new { @class = "form-control m-input m-input--solid", @id = "exampleTextarea", @rows = "1" })
+                            </div>
+                            <div class="form-group m-form__group">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>
+                                            Tỉnh/Thành phố
+                                        </label>
+                                        @Html.TextBoxFor(model => model.Tinh_TPLienLac, new { @class = "form-control m-input" })
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            Quận/Huyện
+                                        </label>
+                                        @Html.TextBoxFor(model => model.Quan_HuyenLienLac, new { @class = "form-control m-input" })
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="m-portlet__foot m-portlet__foot--fit">
-                            <div class="m-form__actions m-form__actions">
-                                <button type="submit" class="btn btn-primary">
-                                    Lưu
-                                </button>
-                                <button href="/DanhSachNhanVien/Index" class="btn btn-secondary">
-                                    Hủy
-                                </button>
-                            </div>
+                    </div>
+                    <div class="m-portlet__foot m-portlet__foot--fit">
+                        <div class="m-form__actions m-form__actions">
+                            <button type="submit" class="btn btn-primary">
+                                Lưu
+                            </button>
+                            <button href="/DanhSachNhanVien/Index" class="btn btn-secondary">
+                                Hủy
+                            </button>
                         </div>
-                    </form>
+                    </div>
+}
                 </div>
             </div>
         </div>
     </div>
-}

@@ -34,6 +34,7 @@ namespace Faslink.Models.Database
         public virtual DbSet<ChucVu> ChucVu { get; set; }
         public virtual DbSet<ChuyenCan> ChuyenCan { get; set; }
         public virtual DbSet<ChuyenCongTac> ChuyenCongTac { get; set; }
+        public virtual DbSet<DiaChiLienLac> DiaChiLienLac { get; set; }
         public virtual DbSet<DiaChiThuongTru> DiaChiThuongTru { get; set; }
         public virtual DbSet<DiaDiemLamViec> DiaDiemLamViec { get; set; }
         public virtual DbSet<DonNghiPhep> DonNghiPhep { get; set; }
@@ -48,6 +49,7 @@ namespace Faslink.Models.Database
         public virtual DbSet<LogHDLD> LogHDLD { get; set; }
         public virtual DbSet<NuoiConNho> NuoiConNho { get; set; }
         public virtual DbSet<NghiPhep> NghiPhep { get; set; }
+        public virtual DbSet<NhanVien> NhanVien { get; set; }
         public virtual DbSet<NhanVienChucVu> NhanVienChucVu { get; set; }
         public virtual DbSet<Quan> Quan { get; set; }
         public virtual DbSet<Tinh> Tinh { get; set; }
@@ -55,8 +57,15 @@ namespace Faslink.Models.Database
         public virtual DbSet<ThaiSan> ThaiSan { get; set; }
         public virtual DbSet<ThuongPhat> ThuongPhat { get; set; }
         public virtual DbSet<TrinhDo> TrinhDo { get; set; }
-        public virtual DbSet<NhanVien> NhanVien { get; set; }
-        public virtual DbSet<DiaChiLienLac> DiaChiLienLac { get; set; }
+    
+        public virtual ObjectResult<ChiTietNhanVienTheoId_Result> ChiTietNhanVienTheoId(Nullable<int> idNhanVien)
+        {
+            var idNhanVienParameter = idNhanVien.HasValue ?
+                new ObjectParameter("IdNhanVien", idNhanVien) :
+                new ObjectParameter("IdNhanVien", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ChiTietNhanVienTheoId_Result>("ChiTietNhanVienTheoId", idNhanVienParameter);
+        }
     
         public virtual ObjectResult<DanhSachNhanVien_Result> DanhSachNhanVien()
         {
@@ -181,6 +190,35 @@ namespace Faslink.Models.Database
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ThemBoPhan", tenBoPhanParameter);
         }
     
+        public virtual ObjectResult<ThemDiaChiLienLac_Result> ThemDiaChiLienLac(string soNhaDuong, Nullable<System.DateTime> thoiGian, Nullable<bool> trangThai, Nullable<int> idTinh_TP, Nullable<int> idNhanVien, Nullable<int> idQuan_Huyen)
+        {
+            var soNhaDuongParameter = soNhaDuong != null ?
+                new ObjectParameter("SoNhaDuong", soNhaDuong) :
+                new ObjectParameter("SoNhaDuong", typeof(string));
+    
+            var thoiGianParameter = thoiGian.HasValue ?
+                new ObjectParameter("ThoiGian", thoiGian) :
+                new ObjectParameter("ThoiGian", typeof(System.DateTime));
+    
+            var trangThaiParameter = trangThai.HasValue ?
+                new ObjectParameter("TrangThai", trangThai) :
+                new ObjectParameter("TrangThai", typeof(bool));
+    
+            var idTinh_TPParameter = idTinh_TP.HasValue ?
+                new ObjectParameter("IdTinh_TP", idTinh_TP) :
+                new ObjectParameter("IdTinh_TP", typeof(int));
+    
+            var idNhanVienParameter = idNhanVien.HasValue ?
+                new ObjectParameter("IdNhanVien", idNhanVien) :
+                new ObjectParameter("IdNhanVien", typeof(int));
+    
+            var idQuan_HuyenParameter = idQuan_Huyen.HasValue ?
+                new ObjectParameter("IdQuan_Huyen", idQuan_Huyen) :
+                new ObjectParameter("IdQuan_Huyen", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ThemDiaChiLienLac_Result>("ThemDiaChiLienLac", soNhaDuongParameter, thoiGianParameter, trangThaiParameter, idTinh_TPParameter, idNhanVienParameter, idQuan_HuyenParameter);
+        }
+    
         public virtual ObjectResult<ThemDiaChiThuongTru_Result> ThemDiaChiThuongTru(Nullable<int> idTinh_TP, string soNhaDuong, Nullable<bool> trangThai, Nullable<int> idNhanVien, Nullable<int> idQuan_Huyen)
         {
             var idTinh_TPParameter = idTinh_TP.HasValue ?
@@ -221,48 +259,6 @@ namespace Faslink.Models.Database
                 new ObjectParameter("IdBoPhan", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ThemLogBoPhan_Result>("ThemLogBoPhan", ngayThayDoiParameter, idNhanVienParameter, idBoPhanParameter);
-        }
-    
-        public virtual ObjectResult<ThemTrinhDo_Result> ThemTrinhDo(string hocVan, string truongHoc, string chuyenMon, string ngoaiNgu, string viTinh, Nullable<System.DateTime> thoiGian, Nullable<int> idNhanVien)
-        {
-            var hocVanParameter = hocVan != null ?
-                new ObjectParameter("HocVan", hocVan) :
-                new ObjectParameter("HocVan", typeof(string));
-    
-            var truongHocParameter = truongHoc != null ?
-                new ObjectParameter("TruongHoc", truongHoc) :
-                new ObjectParameter("TruongHoc", typeof(string));
-    
-            var chuyenMonParameter = chuyenMon != null ?
-                new ObjectParameter("ChuyenMon", chuyenMon) :
-                new ObjectParameter("ChuyenMon", typeof(string));
-    
-            var ngoaiNguParameter = ngoaiNgu != null ?
-                new ObjectParameter("NgoaiNgu", ngoaiNgu) :
-                new ObjectParameter("NgoaiNgu", typeof(string));
-    
-            var viTinhParameter = viTinh != null ?
-                new ObjectParameter("ViTinh", viTinh) :
-                new ObjectParameter("ViTinh", typeof(string));
-    
-            var thoiGianParameter = thoiGian.HasValue ?
-                new ObjectParameter("ThoiGian", thoiGian) :
-                new ObjectParameter("ThoiGian", typeof(System.DateTime));
-    
-            var idNhanVienParameter = idNhanVien.HasValue ?
-                new ObjectParameter("IdNhanVien", idNhanVien) :
-                new ObjectParameter("IdNhanVien", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ThemTrinhDo_Result>("ThemTrinhDo", hocVanParameter, truongHocParameter, chuyenMonParameter, ngoaiNguParameter, viTinhParameter, thoiGianParameter, idNhanVienParameter);
-        }
-    
-        public virtual int XoaNhanVien(Nullable<int> idNhanVien)
-        {
-            var idNhanVienParameter = idNhanVien.HasValue ?
-                new ObjectParameter("IdNhanVien", idNhanVien) :
-                new ObjectParameter("IdNhanVien", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("XoaNhanVien", idNhanVienParameter);
         }
     
         public virtual ObjectResult<ThemNhanVien_Result> ThemNhanVien(Nullable<int> idNhanVien, string hoTen, Nullable<int> idGioiTinh, Nullable<System.DateTime> ngayVao, Nullable<System.DateTime> ngaySinh, string noiSinh, string honNhan, string dienThoai, string dienThoaiNguoiThan, string emailCTy, string emailCaNhan, string quocTich, string tonGiao, string danToc, string hinh, Nullable<int> soNguoiPhuThuoc, Nullable<bool> trangThai, Nullable<int> mvt, string ka, string toLamViec, Nullable<System.DateTime> ngayNghi, string nguoiGioiThieu, string soCMND, Nullable<System.DateTime> ngayCap, string noiCap, string nguyenQuan)
@@ -374,33 +370,37 @@ namespace Faslink.Models.Database
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ThemNhanVien_Result>("ThemNhanVien", idNhanVienParameter, hoTenParameter, idGioiTinhParameter, ngayVaoParameter, ngaySinhParameter, noiSinhParameter, honNhanParameter, dienThoaiParameter, dienThoaiNguoiThanParameter, emailCTyParameter, emailCaNhanParameter, quocTichParameter, tonGiaoParameter, danTocParameter, hinhParameter, soNguoiPhuThuocParameter, trangThaiParameter, mvtParameter, kaParameter, toLamViecParameter, ngayNghiParameter, nguoiGioiThieuParameter, soCMNDParameter, ngayCapParameter, noiCapParameter, nguyenQuanParameter);
         }
     
-        public virtual ObjectResult<ThemDiaChiLienLac_Result> ThemDiaChiLienLac(string soNhaDuong, Nullable<System.DateTime> thoiGian, Nullable<bool> trangThai, Nullable<int> idTinh_TP, Nullable<int> idNhanVien, Nullable<int> idQuan_Huyen)
+        public virtual ObjectResult<ThemTrinhDo_Result> ThemTrinhDo(string hocVan, string truongHoc, string chuyenMon, string ngoaiNgu, string viTinh, Nullable<System.DateTime> thoiGian, Nullable<int> idNhanVien)
         {
-            var soNhaDuongParameter = soNhaDuong != null ?
-                new ObjectParameter("SoNhaDuong", soNhaDuong) :
-                new ObjectParameter("SoNhaDuong", typeof(string));
+            var hocVanParameter = hocVan != null ?
+                new ObjectParameter("HocVan", hocVan) :
+                new ObjectParameter("HocVan", typeof(string));
+    
+            var truongHocParameter = truongHoc != null ?
+                new ObjectParameter("TruongHoc", truongHoc) :
+                new ObjectParameter("TruongHoc", typeof(string));
+    
+            var chuyenMonParameter = chuyenMon != null ?
+                new ObjectParameter("ChuyenMon", chuyenMon) :
+                new ObjectParameter("ChuyenMon", typeof(string));
+    
+            var ngoaiNguParameter = ngoaiNgu != null ?
+                new ObjectParameter("NgoaiNgu", ngoaiNgu) :
+                new ObjectParameter("NgoaiNgu", typeof(string));
+    
+            var viTinhParameter = viTinh != null ?
+                new ObjectParameter("ViTinh", viTinh) :
+                new ObjectParameter("ViTinh", typeof(string));
     
             var thoiGianParameter = thoiGian.HasValue ?
                 new ObjectParameter("ThoiGian", thoiGian) :
                 new ObjectParameter("ThoiGian", typeof(System.DateTime));
     
-            var trangThaiParameter = trangThai.HasValue ?
-                new ObjectParameter("TrangThai", trangThai) :
-                new ObjectParameter("TrangThai", typeof(bool));
-    
-            var idTinh_TPParameter = idTinh_TP.HasValue ?
-                new ObjectParameter("IdTinh_TP", idTinh_TP) :
-                new ObjectParameter("IdTinh_TP", typeof(int));
-    
             var idNhanVienParameter = idNhanVien.HasValue ?
                 new ObjectParameter("IdNhanVien", idNhanVien) :
                 new ObjectParameter("IdNhanVien", typeof(int));
     
-            var idQuan_HuyenParameter = idQuan_Huyen.HasValue ?
-                new ObjectParameter("IdQuan_Huyen", idQuan_Huyen) :
-                new ObjectParameter("IdQuan_Huyen", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ThemDiaChiLienLac_Result>("ThemDiaChiLienLac", soNhaDuongParameter, thoiGianParameter, trangThaiParameter, idTinh_TPParameter, idNhanVienParameter, idQuan_HuyenParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ThemTrinhDo_Result>("ThemTrinhDo", hocVanParameter, truongHocParameter, chuyenMonParameter, ngoaiNguParameter, viTinhParameter, thoiGianParameter, idNhanVienParameter);
         }
     
         public virtual int XoaDiaChiLienLac(Nullable<int> idNhanVien)
@@ -430,6 +430,15 @@ namespace Faslink.Models.Database
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("XoaLogBoPhan", idNhanVienParameter);
         }
     
+        public virtual int XoaNhanVien(Nullable<int> idNhanVien)
+        {
+            var idNhanVienParameter = idNhanVien.HasValue ?
+                new ObjectParameter("IdNhanVien", idNhanVien) :
+                new ObjectParameter("IdNhanVien", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("XoaNhanVien", idNhanVienParameter);
+        }
+    
         public virtual int XoaTrinhDo(Nullable<int> idNhanVien)
         {
             var idNhanVienParameter = idNhanVien.HasValue ?
@@ -437,15 +446,6 @@ namespace Faslink.Models.Database
                 new ObjectParameter("IdNhanVien", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("XoaTrinhDo", idNhanVienParameter);
-        }
-    
-        public virtual ObjectResult<ChiTietNhanVienTheoId_Result> ChiTietNhanVienTheoId(Nullable<int> idNhanVien)
-        {
-            var idNhanVienParameter = idNhanVien.HasValue ?
-                new ObjectParameter("IdNhanVien", idNhanVien) :
-                new ObjectParameter("IdNhanVien", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ChiTietNhanVienTheoId_Result>("ChiTietNhanVienTheoId", idNhanVienParameter);
         }
     }
 }

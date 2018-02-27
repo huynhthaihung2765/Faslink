@@ -38,10 +38,10 @@ namespace Faslink.Models.Database
         public Nullable<System.DateTime> DenNgay { get; set; }
     
         public virtual LoaiHopDong LoaiHopDong { get; set; }
+        public virtual NhanVien NhanVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LogHDLD> LogHDLD { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TinhTrangHopDong> TinhTrangHopDong { get; set; }
-        public virtual NhanVien NhanVien { get; set; }
     }
 }

@@ -182,6 +182,15 @@ namespace Faslink.Controllers
                 return HttpNotFound();
             }
 
+            if (chiTietNVTheoId.TrangThaiNhanVien == true)
+            {
+                ViewBag.trangthai = "true";
+            }
+            else
+            {
+                ViewBag.trangthai = "false";
+            }
+
             return View(chiTietNVTheoId);
         }
         [HttpPost]
@@ -193,7 +202,7 @@ namespace Faslink.Controllers
                 if(ModelState.IsValid)
                 {
                     int IdGioiTinh = int.Parse(collection["IdGioiTinh"]);
-                    //if(IdGioiTinh == 1)
+                    //if (IdGioiTinh == 1)
                     //{
                     //    ViewBag.gioitinh = "Nam";
                     //}
@@ -201,6 +210,7 @@ namespace Faslink.Controllers
                     //{
                     //    ViewBag.gioitinh = "Nữ";
                     //}
+                    bool trangThai = bool.Parse(collection["trangThai"]);
                     db.SuaNhanVien(
                     id,
                     collection["HoTen"],
@@ -218,7 +228,7 @@ namespace Faslink.Controllers
                     collection["danToc"],
                     collection["hinh"],
                     Int32.Parse(collection["SoNguoiPhuThuoc"]),
-                    bool.Parse(collection["trangThai"]),
+                    trangThai,
                     Int32.Parse(collection["Mvt"]),
                     collection["ka"],
                     collection["to"],
